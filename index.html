@@ -2,93 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Sign in - Aims SaaS</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-        .container {
-            max-width: 400px;
-            margin: 80px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        .logo img {
-            width: 150px;
-            display: block;
-            margin: 0 auto 20px;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #0078d4;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #005a9e;
-        }
-        .links {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .links a {
-            color: #0078d4;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-        .error {
-            color: red;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-    </style>
+    <title>Sign in - Your Application</title>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="logo-large.jpg" alt="Aims SaaS" />
-        </div>
-
-        <form method="post" action="{{Action}}">
-            <input type="hidden" name="csrf_token" value="{{CsrfToken}}" />
-
-            <div class="error">{{ErrorMessage}}</div>
-
-            <label for="email">Email address</label>
-            <input id="email" name="login" type="email" value="{{Username}}" required />
-
-            <label for="password">Password</label>
-            <input id="password" name="passwd" type="password" required />
-
-            <button type="submit">Sign in</button>
-        </form>
-
-        <div class="links">
-            <a href="https://go.microsoft.com/fwlink/?linkid=2259814" target="_blank">Consumer Health Privacy</a> |
-            <a href="https://go.microsoft.com/fwlink/?LinkId=518021" target="_blank">Data Privacy Notice</a>
-        </div>
-    </div>
+    <div id="api"></div>
 </body>
 </html>
