@@ -1,93 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sign up or sign in</title>
+    <title>Sign in</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Bootstrap 3 CSS -->
     <link
       href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
       rel="stylesheet"
-      type="text/css"
     />
     <style>
-      /* Additional styling to match Azure's look */
-      .custom-links {
-        margin-top: 20px;
-        font-size: 14px;
-        text-align: center;
-      }
-      .custom-links a {
-        color: #0067b8;
-        text-decoration: none;
-      }
-      .custom-links a:hover {
-        text-decoration: underline;
-      }
-
-      /* Reset & Base */
+      /* Base */
       body {
         margin: 0;
         font-family: "Segoe UI", Arial, sans-serif;
-        background: url("background.png") no-repeat center center fixed;
-        background-size: cover;
+        background: #f5f5f5;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        flex-direction: column;
+      }
+      /* Azure-injected background */
+      img[data-tenant-branding-background="true"] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
       }
 
-      /* Container (works for login/signup/reset) */
-      .login-container,
-      .signup-container,
-      .reset-container {
+      /* Card container */
+      .card-container {
         background: #fff;
-        padding: 40px;
+        padding: 40px 35px;
         border-radius: 12px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        max-width: 420px;
+        max-width: 400px;
         width: 100%;
         text-align: center;
       }
 
+      /* Logo */
+      .card-container img {
+        max-height: 50px;
+        margin-bottom: 20px;
+      }
+
       /* Heading */
-      .login-container h1,
-      .signup-container h1,
-      .reset-container h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
-        color: #222;
-      }
-
-      /* Signup header with cancel link */
-      .signup-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      .card-container h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1a1a;
         margin-bottom: 20px;
       }
 
-      #cancel {
-        font-size: 14px;
-        color: #0066cc;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      #cancel:hover {
-        text-decoration: underline;
-      }
-
-      /* B2C Form Elements */
-      #api label {
-        display: block;
-        text-align: left;
-        font-size: 14px;
-        margin: 10px 0 5px;
-        color: #333;
-      }
-
+      /* B2C injected form fields */
       #api input[type="text"],
       #api input[type="email"],
       #api input[type="password"] {
@@ -98,12 +68,38 @@
         border-radius: 6px;
         margin-bottom: 15px;
         box-sizing: border-box;
+        background-color: #f0f6ff; /* light blue look like your screenshot */
       }
 
-      /* Buttons */
+      /* Forgot password + checkbox row (Azure injects links/labels here) */
+      #api .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      #api a {
+        font-size: 13px;
+        color: #0067b8;
+        text-decoration: none;
+      }
+
+      #api a:hover {
+        text-decoration: underline;
+      }
+
+      #api label {
+        font-size: 13px;
+        color: #333;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Sign in button */
       #api button,
       #api input[type="submit"] {
-        background-color: #0066cc;
+        background-color: #0067b8;
         color: white;
         border: none;
         border-radius: 6px;
@@ -112,44 +108,66 @@
         font-weight: 600;
         width: 100%;
         cursor: pointer;
-        margin-top: 10px;
-        transition: background 0.2s ease-in-out;
+        margin-top: 5px;
       }
+
       #api button:hover,
       #api input[type="submit"]:hover {
         background-color: #004a99;
       }
 
-      /* Error messages */
-      #api .error {
-        color: #cc0000;
+      /* Signup link (Azure injects) */
+      #api .signup-link {
+        margin-top: 15px;
         font-size: 14px;
-        margin-top: -10px;
-        margin-bottom: 10px;
-        text-align: left;
       }
 
-      /* Links (signup, forgot password) */
-      #api a {
-        color: #0066cc;
-        font-size: 14px;
+      #api .signup-link a {
+        color: #0067b8;
         text-decoration: none;
       }
-      #api a:hover {
+
+      #api .signup-link a:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer links */
+      .footer-links {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+      }
+
+      .footer-links a {
+        color: #666;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+
+      .footer-links a:hover {
         text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <!-- Centered form container -->
-    <div class="login-container">
-      <h1>Aims <span style="color:#0066cc;">SaaS</span></h1>
+    <div class="card-container">
+      <!-- Logo -->
+      <img
+        class="companyLogo"
+        data-tenant-branding-logo="true"
+        src="https://aadcdn.msftauthimages.net/447973e2-xdz91jybbatez74ia5hupnyykgt8p4pcpfmydw3g0qw/logintenantbranding/0/bannerlogo?ts=638890142303101252"
+        alt="Company Logo"
+      />
+      <!-- Heading -->
+      <h2>Sign in with your email address</h2>
+
       <!-- Azure AD B2C injects form here -->
       <div id="api"></div>
     </div>
 
-    <!-- Footer links -->
-    <div class="container custom-links">
+    <!-- Footer -->
+    <div class="footer-links">
       <a href="https://go.microsoft.com/fwlink/?linkid=2259814" target="_blank">
         Consumer Health Privacy
       </a>
