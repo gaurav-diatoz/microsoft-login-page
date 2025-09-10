@@ -5,6 +5,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <style>
       /* Following are generated styles via gulp. */
       /* inject: css */
@@ -1404,35 +1409,144 @@
         margin: 14px 0;
       }
     </style>
-    <link
-      href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
   </head>
   <body>
-    <div class="card-container">
-      <!-- Logo -->
+    <div
+      id="background_branding_container"
+      data-tenant-branding-background-color="true"
+    >
       <img
-        class="companyLogo"
-        data-tenant-branding-logo="true"
-        src="https://aadcdn.msftauthimages.net/447973e2-xdz91jybbatez74ia5hupnyykgt8p4pcpfmydw3g0qw/logintenantbranding/0/bannerlogo?ts=638890142303101252"
-        alt="Company Logo"
+        data-tenant-branding-background="true"
+        src="https://aadcdn.msftauthimages.net/447973e2-xdz91jybbatez74ia5hupnyykgt8p4pcpfmydw3g0qw/logintenantbranding/0/illustration?ts=638890140802821820"
+        alt="Background Image"
       />
-
-      <!-- Azure B2C injects sign-in form here -->
-      <div id="api"></div>
     </div>
+    <div class="container unified_container" role="presentation">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <img
+                class="companyLogo"
+                data-tenant-branding-logo="true"
+                src="https://aadcdn.msftauthimages.net/447973e2-xdz91jybbatez74ia5hupnyykgt8p4pcpfmydw3g0qw/logintenantbranding/0/bannerlogo?ts=638890142303101252"
+                alt="Company Logo"
+              />
+              <div id="api" data-name="Unified" role="main">
+                <form
+                  id="localAccountForm"
+                  action="JavaScript:void(0);"
+                  class="localAccount"
+                  aria-label="Sign in with your email address"
+                >
+                  <div class="intro">
+                    <h2 aria-level="1">Sign in with your email address</h2>
+                  </div>
+                  <div
+                    class="error pageLevel"
+                    aria-hidden="true"
+                    role="alert"
+                    style="display: none"
+                  >
+                    <p></p>
+                  </div>
+                  <div class="entry">
+                    <div class="entry-item">
+                      <div
+                        class="error itemLevel"
+                        aria-hidden="true"
+                        role="alert"
+                        style="display: none"
+                      >
+                        <p></p>
+                      </div>
+                      <input
+                        type="email"
+                        id="email"
+                        name="Email Address"
+                        title="Please enter a valid Email Address"
+                        pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
+                        autofocus=""
+                        placeholder="Email Address"
+                        aria-label="Email Address"
+                      />
+                    </div>
+                    <div class="entry-item">
+                      <div class="password-label"></div>
+                      <div
+                        class="error itemLevel"
+                        aria-hidden="true"
+                        style="display: none"
+                      >
+                        <p role="alert"></p>
+                      </div>
+                      <input
+                        type="password"
+                        id="password"
+                        name="Password"
+                        placeholder="Password"
+                        aria-label="Password"
+                        autocomplete="current-password"
+                        aria-required="true"
+                      />
+                      <div class="forgot-password center-height">
+                        <a
+                          id="forgotPassword"
+                          href="/solumb2c.onmicrosoft.com/B2C_1_signupsignin1/api/CombinedSigninAndSignup/unified?claimsexchange=ForgotPassword&amp;csrf_token=MG4yZDExakVyNnZZcmJOTnVoSE9yU1YrK29qSi9VRy82a0o4ZzlIQ2JGL0w1My9pTmtvb1hJSDZwRVNTZzdJSnhOVUw1N2ZYc0NVbzdJeHZwd0ttREE9PTsyMDI1LTA5LTEwVDExOjUwOjMwLjgzNzIyNDhaO0JoSnNtRTdIWnFuRUJjR3RTdk9iQkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIyNGQ1N2JmNi1hNDk4LTQyZjctYjA3Mi0wMGYwYjVjNjE4ZTYifQ&amp;p=B2C_1_signupsignin1"
+                          >Forgot your password?</a
+                        >
+                      </div>
+                    </div>
+                    <div class="working"></div>
+                    <div class="rememberMe">
+                      <input
+                        id="rememberMe"
+                        type="checkbox"
+                        name="rememberMe"
+                      />
+                      <label for="rememberMe">Keep me signed in</label>
+                    </div>
 
-    <!-- Footer -->
-    <div class="footer-links">
-      <a href="https://go.microsoft.com/fwlink/?linkid=2259814" target="_blank">
-        Consumer Health Privacy
-      </a>
-      |
-      <a href="https://go.microsoft.com/fwlink/?LinkId=518021" target="_blank">
-        Data Privacy Notice
-      </a>
+                    <div class="buttons">
+                      <button id="next" type="submit" form="localAccountForm">
+                        Sign in
+                      </button>
+                    </div>
+                  </div>
+                  <div class="divider">
+                    <h2>OR</h2>
+                  </div>
+                  <div class="create">
+                    <p>
+                      Don't have an account?<a
+                        id="createAccount"
+                        href="/solumb2c.onmicrosoft.com/B2C_1_signupsignin1/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=MG4yZDExakVyNnZZcmJOTnVoSE9yU1YrK29qSi9VRy82a0o4ZzlIQ2JGL0w1My9pTmtvb1hJSDZwRVNTZzdJSnhOVUw1N2ZYc0NVbzdJeHZwd0ttREE9PTsyMDI1LTA5LTEwVDExOjUwOjMwLjgzNzIyNDhaO0JoSnNtRTdIWnFuRUJjR3RTdk9iQkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIyNGQ1N2JmNi1hNDk4LTQyZjctYjA3Mi0wMGYwYjVjNjE4ZTYifQ&amp;p=B2C_1_signupsignin1"
+                        >Sign up now</a
+                      >
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <!-- Footer -->
+              <div class="footer-links">
+                <a
+                  href="https://go.microsoft.com/fwlink/?linkid=2259814"
+                  target="_blank"
+                >
+                  Consumer Health Privacy
+                </a>
+                |
+                <a
+                  href="https://go.microsoft.com/fwlink/?LinkId=518021"
+                  target="_blank"
+                >
+                  Data Privacy Notice
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
