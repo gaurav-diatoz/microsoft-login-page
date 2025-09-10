@@ -68,14 +68,16 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://yourdomain.com/assets/logo.png" alt="Aims SaaS" />
+            <img src="logo-large.jpg" alt="Aims SaaS" />
         </div>
 
-        <form method="post">
-            <input type="hidden" name="csrf_token"/>
+        <form method="post" action="{{Action}}">
+            <input type="hidden" name="csrf_token" value="{{CsrfToken}}" />
+
+            <div class="error">{{ErrorMessage}}</div>
 
             <label for="email">Email address</label>
-            <input id="email" name="login" type="email" required />
+            <input id="email" name="login" type="email" value="{{Username}}" required />
 
             <label for="password">Password</label>
             <input id="password" name="passwd" type="password" required />
