@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <title>Sign in - Your Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #0078d4;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Azure B2C will inject the login UI here -->
     <div id="api"></div>
-     <div class="links">
-            <a href="https://go.microsoft.com/fwlink/?linkid=2259814" target="_blank">Consumer Health Privacy</a> |
-            <a href="https://go.microsoft.com/fwlink/?LinkId=518021" target="_blank">Data Privacy Notice</a>
-        </div>
+
+    <!-- Custom links section -->
+    <div class="footer-links">
+        <a href="https://go.microsoft.com/fwlink/?linkid=2259814" target="_blank">Consumer Health Privacy</a> |
+        <a href="https://go.microsoft.com/fwlink/?LinkId=518021" target="_blank">Data Privacy Notice</a>
+    </div>
 </body>
 </html>
-
