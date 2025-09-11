@@ -764,7 +764,7 @@
       }
       .unified_container .row .panel-default #api .intro {
         display: block;
-        text-align: left;
+        text-align: center;
       }
       .unified_container .row .panel-default #api .intro h2 {
         font-size: 20px;
@@ -1265,7 +1265,7 @@
     <div
       id="background_branding_container"
       data-tenant-branding-background-color="true"
-      style="background: #1662c7"
+      style="background: blue"
     ></div>
     <div class="container unified_container" role="presentation">
       <div class="row">
@@ -1277,15 +1277,30 @@
                 src="https://gaurav-diatoz.github.io/microsoft-login-page/logo.svg"
                 alt="Company Logo"
               />
-              <div id="api" role="main"></div>
-              <div class="footer-links">
+              <div id="api" role="main">
+                <div id="api" role="main">
+                  <form
+                    id="localAccountForm"
+                    action="JavaScript:void(0);"
+                    class="localAccount"
+                    aria-label="Sign in with your email address"
+                  >
+                    <div class="intro">
+                      <h2 aria-level="1">Sign in</h2>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div
+                class="footer-links"
+                style="display: flex; justify-content: space-between"
+              >
                 <a
                   href="https://go.microsoft.com/fwlink/?linkid=2259814"
                   target="_blank"
                 >
                   Consumer Health Privacy
                 </a>
-                |
                 <a
                   href="https://go.microsoft.com/fwlink/?LinkId=518021"
                   target="_blank"
