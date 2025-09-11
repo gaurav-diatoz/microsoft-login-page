@@ -11,8 +11,6 @@
       type="text/css"
     />
     <style>
-      /* Following are generated styles via gulp. */
-      /* inject: css */
       .unified_container .row .panel-default {
         padding: 40px 30px;
         margin-top: auto;
@@ -1355,41 +1353,6 @@
       }
       /* endinject */
     </style>
-    <style id="idpselector">
-      #SignInWithLogonNameExchange,
-      #SignUpWithLogonEmailExchange,
-      #SignUpWithLogonNameExchange {
-        background-image: url(https://solumb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/local.svg);
-      }
-      #SignInWithLogonNameExchange:hover,
-      #SignUpWithLogonEmailExchange:hover,
-      #SignUpWithLogonNameExchange:hover {
-        background-image: url(https://solumb2c.b2clogin.com/static/tenant/templates/idp_logos/white/local.svg);
-      }
-      #SignUpWithLogonEmailExchange.text-link {
-        background-image: none;
-        background-color: transparent !important;
-      }
-      #SignUpWithLogonEmailExchange.text-link:hover {
-        background-image: none;
-        background-color: transparent !important;
-      }
-    </style>
-    <style id="common">
-      @font-face {
-        font-family: "SegoeUI";
-        src: url(https://solumb2c.b2clogin.com/static/tenant/templates/fonts/segoeui.WOFF);
-        font-weight: normal;
-      }
-      @font-face {
-        font-family: "SegoeUI";
-        src: url(https://solumb2c.b2clogin.com/static/tenant/templates/fonts/segoeui_bold.WOFF);
-        font-weight: bold;
-      }
-      .buttons #cancel:before {
-        content: url(https://solumb2c.b2clogin.com/static/tenant/templates/images/left-arrow.svg);
-      }
-    </style>
     <style>
       .no_display {
         display: none;
@@ -1433,101 +1396,7 @@
                 alt="Company Logo"
               />
               <div id="api" data-name="Unified" role="main">
-                <form
-                  id="localAccountForm"
-                  action="JavaScript:void(0);"
-                  class="localAccount"
-                  aria-label="Sign in with your email address"
-                >
-                  <div class="intro">
-                    <h2 aria-level="1">Sign in with your email address</h2>
-                  </div>
-                  <div
-                    class="error pageLevel"
-                    aria-hidden="true"
-                    role="alert"
-                    style="display: none"
-                  >
-                    <p></p>
-                  </div>
-                  <div class="entry">
-                    <div class="entry-item">
-                      <div
-                        class="error itemLevel"
-                        aria-hidden="true"
-                        role="alert"
-                        style="display: none"
-                      >
-                        <p></p>
-                      </div>
-                      <input
-                        type="email"
-                        id="email"
-                        name="Email Address"
-                        title="Please enter a valid Email Address"
-                        pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
-                        autofocus=""
-                        placeholder="Email Address"
-                        aria-label="Email Address"
-                      />
-                    </div>
-                    <div class="entry-item">
-                      <div class="password-label"></div>
-                      <div
-                        class="error itemLevel"
-                        aria-hidden="true"
-                        style="display: none"
-                      >
-                        <p role="alert"></p>
-                      </div>
-                      <input
-                        type="password"
-                        id="password"
-                        name="Password"
-                        placeholder="Password"
-                        aria-label="Password"
-                        autocomplete="current-password"
-                        aria-required="true"
-                      />
-                      <div class="forgot-password center-height">
-                        <a
-                          id="forgotPassword"
-                          href="/solumb2c.onmicrosoft.com/B2C_1_signupsignin1/api/CombinedSigninAndSignup/unified?claimsexchange=ForgotPassword&amp;csrf_token=MG4yZDExakVyNnZZcmJOTnVoSE9yU1YrK29qSi9VRy82a0o4ZzlIQ2JGL0w1My9pTmtvb1hJSDZwRVNTZzdJSnhOVUw1N2ZYc0NVbzdJeHZwd0ttREE9PTsyMDI1LTA5LTEwVDExOjUwOjMwLjgzNzIyNDhaO0JoSnNtRTdIWnFuRUJjR3RTdk9iQkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIyNGQ1N2JmNi1hNDk4LTQyZjctYjA3Mi0wMGYwYjVjNjE4ZTYifQ&amp;p=B2C_1_signupsignin1"
-                          >Forgot your password?</a
-                        >
-                      </div>
-                    </div>
-                    <div class="working"></div>
-                    <div class="rememberMe">
-                      <input
-                        id="rememberMe"
-                        type="checkbox"
-                        name="rememberMe"
-                      />
-                      <label for="rememberMe">Keep me signed in</label>
-                    </div>
-
-                    <div class="buttons">
-                      <button id="next" type="submit" form="localAccountForm">
-                        Sign in
-                      </button>
-                    </div>
-                  </div>
-                  <div class="divider">
-                    <h2>OR</h2>
-                  </div>
-                  <div class="create">
-                    <p>
-                      Don't have an account?<a
-                        id="createAccount"
-                        href="/solumb2c.onmicrosoft.com/B2C_1_signupsignin1/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=MG4yZDExakVyNnZZcmJOTnVoSE9yU1YrK29qSi9VRy82a0o4ZzlIQ2JGL0w1My9pTmtvb1hJSDZwRVNTZzdJSnhOVUw1N2ZYc0NVbzdJeHZwd0ttREE9PTsyMDI1LTA5LTEwVDExOjUwOjMwLjgzNzIyNDhaO0JoSnNtRTdIWnFuRUJjR3RTdk9iQkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIyNGQ1N2JmNi1hNDk4LTQyZjctYjA3Mi0wMGYwYjVjNjE4ZTYifQ&amp;p=B2C_1_signupsignin1"
-                        >Sign up now</a
-                      >
-                    </p>
-                  </div>
-                </form>
               </div>
-              <!-- Footer -->
               <div class="footer-links">
                 <a
                   href="https://go.microsoft.com/fwlink/?linkid=2259814"
