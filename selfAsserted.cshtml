@@ -1,110 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <style>
-/* IMPORTANT: selfAsserted must ONLY style form, not layout */
 
-/* Hide default Microsoft headings */
+/* Hide Microsoft headings */
+#api .heading,
+#api .intro,
 #api h1,
 #api h2,
-#api h3,
-#api .intro {
+#api h3 {
   display: none !important;
 }
 
-/* Form layout */
-#api form {
+/* Attribute list layout */
+#attributeList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Labels */
-#api label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 4px;
-}
-
 /* Inputs */
-#api input[type="email"],
-#api input[type="password"],
-#api input[type="text"] {
-  width: 100%;
-  padding: 12px 14px;
+#attributeList input[type="email"],
+#attributeList input[type="password"],
+#attributeList input[type="text"] {
+  width: 100% !important;
+  height: 44px;
+  padding: 0 12px;
   border-radius: 6px;
   border: 1px solid #d1d5db;
   font-size: 14px;
-  background: #fff;
-  transition: 0.2s;
 }
 
-#api input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 1px #2563eb;
+/* Button */
+.buttons button {
+  width: 100% !important;
+  height: 44px;
+  border-radius: 6px;
+  background: #2563eb !important;
+  color: #fff;
+  border: none;
+  font-weight: 600;
 }
 
-/* Checkbox row */
-#api input[type="checkbox"] {
-  margin-right: 6px;
-}
-
-/* Links */
-#api a {
+/* Forgot password link */
+#attributeList a {
   font-size: 13px;
   color: #2563eb;
-  text-decoration: none;
 }
 
-#api a:hover {
-  text-decoration: underline;
-}
-
-/* Buttons */
-#api button,
-#api input[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 6px;
-  background: #2563eb;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#api button:hover,
-#api input[type="submit"]:hover {
-  background: #1d4ed8;
-}
-
-/* Error messages */
-#api .error,
-#api .validation-summary-errors {
-  color: #dc2626;
-  font-size: 13px;
-  margin-bottom: 8px;
-}
-
-/* OR divider */
-#api .separator {
-  text-align: center;
-  margin: 15px 0;
-  font-size: 13px;
-  color: #6b7280;
+/* Remove Microsoft spacing */
+.panel,
+.panel-body,
+.container,
+.row {
+  all: unset !important;
 }
 </style>
 </head>
 <body>
-<h1 style="color:red">SELF ASSERTED LOADED</h1>
   <div id="api"></div>
 </body>
 </html>
