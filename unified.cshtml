@@ -1,110 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign In</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", Arial, sans-serif;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
 
-        body {
-            margin: 0;
-            height: 100vh;
-            background: #f5f7fa;
-        }
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f3f4f6;
+    }
 
-        .container {
-            display: flex;
-            height: 100vh;
-            width: 100%;
-        }
+    /* Outer Card */
+    .card-wrapper {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        /* LEFT LOGIN PANEL */
-        .left-panel {
-            width: 35%;
-            background: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-right: 1px solid #e5e7eb;
-        }
+    .card {
+      width: 100%;
+      max-width: 1400px;
+      height: 90vh;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+    }
 
-        .login-box {
-            width: 80%;
-            max-width: 400px;
-        }
+    /* LEFT PANEL */
+    .left-panel {
+      width: 32%;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid #e5e7eb;
+    }
 
-        .login-box h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #111827;
-        }
+    .login-box {
+      width: 100%;
+      max-width: 360px;
+    }
 
-        /* Azure AD B2C form container */
-        #api {
-            margin-top: 10px;
-        }
+    .login-box h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #111827;
+    }
 
-        /* RIGHT BRAND PANEL */
-        .right-panel {
-            width: 65%;
-            background: linear-gradient(135deg, #0a0f2c, #1b2a6b);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px;
-        }
+    #api {
+      width: 100%;
+    }
 
-        .brand h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+    /* RIGHT PANEL */
+    .right-panel {
+      width: 68%;
+      background: radial-gradient(circle at top right, #1e3a8a 0%, #0a0f2c 50%, #050817 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .brand p {
-            font-size: 16px;
-            opacity: 0.85;
-        }
+    .brand {
+      z-index: 2;
+      max-width: 520px;
+    }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-            }
-            .left-panel, .right-panel {
-                width: 100%;
-                height: 50%;
-            }
-        }
-    </style>
+    .brand h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .brand p {
+      font-size: 15px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    /* Decorative lines (like your screenshot) */
+    .right-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        120deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05) 1px,
+        transparent 1px,
+        transparent 25px
+      );
+      opacity: 0.4;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .card {
+        flex-direction: column;
+        height: auto;
+      }
+      .left-panel, .right-panel {
+        width: 100%;
+        height: auto;
+      }
+      .right-panel {
+        padding: 40px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card-wrapper">
+  <div class="card">
 
-    <!-- LEFT LOGIN FORM -->
+    <!-- LEFT LOGIN -->
     <div class="left-panel">
-        <div class="login-box">
-            <h2>Sign In</h2>
-
-            <!-- Azure AD B2C injects login form here -->
-            <div id="api"></div>
-        </div>
+      <div class="login-box">
+        <h2>Sign In</h2>
+        <div id="api"></div>
+      </div>
     </div>
 
-    <!-- RIGHT BRAND SECTION -->
+    <!-- RIGHT BRAND -->
     <div class="right-panel">
-        <div class="brand">
-            <h1>SOLUM</h1>
-            <p>Smart Retail solution unifying ESL, digital signage, AI & IoT technologies</p>
-        </div>
+      <div class="brand">
+        <h1>SOLUM</h1>
+        <p>
+          Smart Retail solution unifying ESL, digital signage, AI & IoT Technologies
+        </p>
+      </div>
     </div>
 
+  </div>
 </div>
 
 </body>
