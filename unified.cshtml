@@ -1,187 +1,251 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign In</title>
+  <title>Sign in</title>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Bootstrap required by Azure B2C -->
+  <link
+    href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+
   <style>
+    /* =========================
+       GLOBAL RESET
+    ========================= */
     * {
       box-sizing: border-box;
       font-family: "Segoe UI", Arial, sans-serif;
     }
 
     html, body {
-      margin: 0;
-      height: 100%;
-      background: #f5f7fa;
+      height: 100% !important;
+      margin: 0 !important;
+      background: #f5f7fa !important;
     }
 
-    /* ===============================
-       MAIN SPLIT LAYOUT (SAFE)
-    =============================== */
+    /* =========================
+       AZURE B2C LAYOUT OVERRIDE
+    ========================= */
 
-    .b2c-wrapper {
-      display: flex;
-      height: 100vh;
-      width: 100%;
+    .container.unified_container {
+      display: flex !important;
+      width: 100% !important;
+      height: 100vh !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+      margin: 0 !important;
     }
 
-    /* LEFT LOGIN PANEL */
-    .b2c-left {
-      width: 35%;
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-right: 1px solid #e5e7eb;
+    .unified_container .row {
+      display: flex !important;
+      width: 100% !important;
+      height: 100% !important;
+      margin: 0 !important;
     }
 
-    /* IMPORTANT: keep Azure panel layout */
-    .unified_container {
-      width: 100%;
-      max-width: 380px;
-      margin: 0 auto;
+    /* LEFT PANEL (LOGIN) */
+    .unified_container .col-lg-6 {
+      width: 35% !important;
+      max-width: 35% !important;
+      background: #ffffff !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 0 !important;
     }
 
-    .panel {
+    .unified_container .panel {
+      width: 100% !important;
       border: none !important;
       box-shadow: none !important;
       background: transparent !important;
     }
 
-    .panel-body {
+    .unified_container .panel-body {
+      width: 100% !important;
+      max-width: 380px !important;
+      margin: auto !important;
       padding: 0 !important;
     }
 
-    /* RIGHT BRAND PANEL */
-    .b2c-right {
+    /* =========================
+       RIGHT PANEL (BRAND)
+    ========================= */
+
+    .right-panel {
       width: 65%;
       background: linear-gradient(135deg, #0a0f2c, #1b2a6b);
-      color: white;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 40px;
+      color: white;
+      position: relative;
     }
 
-    .brand h1 {
-      font-size: 48px;
+    .brand-box h1 {
+      font-size: 42px;
+      font-weight: 600;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .brand p {
+    .brand-box p {
       font-size: 15px;
       opacity: 0.85;
+      max-width: 420px;
+      margin: auto;
     }
 
-    /* ===============================
-       AZURE INPUT FIX (SAFE OVERRIDE)
-    =============================== */
+    /* =========================
+       AZURE B2C FORM STYLING
+    ========================= */
 
     #api {
       width: 100% !important;
     }
 
+    /* Remove Microsoft default headings */
+    #api h1, #api h2, #api h3, #api .intro {
+      display: none !important;
+    }
+
     #attributeList ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    #attributeList ul li {
-      margin-bottom: 14px;
-      width: 100%;
+    #attributeList label {
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #374151 !important;
+      margin-bottom: 4px !important;
+      display: block !important;
     }
 
-    #attributeList ul li input {
+    #attributeList input[type="email"],
+    #attributeList input[type="password"],
+    #attributeList input[type="text"] {
       width: 100% !important;
       height: 46px !important;
       padding: 0 14px !important;
       border-radius: 8px !important;
       border: 1.5px solid #d1d5db !important;
-      font-size: 15px !important;
+      font-size: 14px !important;
       background: #fff !important;
     }
 
-    #attributeList ul li input:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 1px #2563eb;
+    #attributeList input:focus {
+      outline: none !important;
+      border-color: #2563eb !important;
+      box-shadow: 0 0 0 1px #2563eb !important;
     }
 
-    .buttons button,
-    .buttons input[type="submit"] {
+    /* Remember me */
+    #api input[type="checkbox"] {
+      width: 16px !important;
+      height: 16px !important;
+      margin-right: 8px !important;
+    }
+
+    /* Links */
+    #api a {
+      font-size: 13px !important;
+      color: #2563eb !important;
+      text-decoration: none !important;
+    }
+
+    #api a:hover {
+      text-decoration: underline !important;
+    }
+
+    /* Sign-in button */
+    #api .buttons button,
+    #api .buttons input[type="submit"],
+    #api .buttons #next {
       width: 100% !important;
       height: 46px !important;
       border-radius: 8px !important;
       background: #2563eb !important;
-      color: #fff !important;
+      color: #ffffff !important;
       border: none !important;
       font-size: 15px !important;
       font-weight: 600 !important;
+      cursor: pointer !important;
     }
 
-    /* Hide Microsoft default headings */
-    #api h1,
-    #api h2,
-    #api h3,
-    #api .intro {
-      display: none !important;
+    #api .buttons button:hover {
+      background: #1d4ed8 !important;
     }
 
-    /* RESPONSIVE */
+    /* Social buttons */
+    #api .accountButton {
+      width: 100% !important;
+      height: 42px !important;
+      border-radius: 8px !important;
+      margin-top: 10px !important;
+      font-size: 14px !important;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
     @media (max-width: 900px) {
-      .b2c-wrapper {
-        flex-direction: column;
+      .container.unified_container {
+        flex-direction: column !important;
       }
-      .b2c-left,
-      .b2c-right {
-        width: 100%;
+
+      .unified_container .col-lg-6 {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-right: none !important;
+      }
+
+      .right-panel {
+        display: none !important;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="container unified_container" role="presentation">
+    <div class="row">
 
-<div class="b2c-wrapper">
+      <!-- LEFT PANEL (LOGIN FORM) -->
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-  <!-- LEFT LOGIN PANEL -->
-  <div class="b2c-left">
-    <div class="container unified_container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
+            <!-- Azure AD B2C injects login form here -->
+            <div id="api" role="main"></div>
 
-              <img
-                class="companyLogo"
-                src="https://gaurav-diatoz.github.io/microsoft-login-page/logo.svg"
-                alt="Company Logo"
-                style="margin-bottom: 20px;"
-              />
-
-              <div id="api" role="main"></div>
-
-            </div>
           </div>
         </div>
       </div>
+
+      <!-- RIGHT PANEL (BRAND) -->
+      <div class="right-panel">
+        <div class="brand-box">
+          <h1>SOLUM</h1>
+          <p>
+            Smart Retail solution unifying ESL, digital signage, AI & IoT technologies
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <!-- RIGHT BRAND PANEL -->
-  <div class="b2c-right">
-    <div class="brand">
-      <h1>SOLUM</h1>
-      <p>Smart Retail solution unifying ESL, digital signage, AI & IoT technologies</p>
-    </div>
-  </div>
-
-</div>
-
 </body>
 </html>
