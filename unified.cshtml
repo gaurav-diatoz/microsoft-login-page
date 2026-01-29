@@ -1463,6 +1463,119 @@
           height: 50%;
         }
       }
+      /* =========================================
+   ✅ FINAL LEFT PANEL FIX (AZURE B2C SAFE)
+========================================= */
+
+      /* Force left panel alignment */
+      .b2c-left {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* Limit form width like Microsoft login */
+      .b2c-left #api {
+        max-width: 380px !important;
+        width: 100% !important;
+        text-align: left !important;
+      }
+
+      /* Heading style */
+      #api .intro h2 {
+        text-align: left !important;
+        font-size: 28px !important;
+        font-weight: 600 !important;
+        margin-bottom: 6px !important;
+      }
+
+      /* Subtitle */
+      #api .intro p {
+        text-align: left !important;
+        font-size: 14px !important;
+        color: #6b7280 !important;
+        margin-bottom: 20px !important;
+      }
+
+      /* Labels visible & clean */
+      #attributeList ul li label {
+        display: block !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        margin-bottom: 6px !important;
+        color: #111827 !important;
+      }
+
+      /* Input fields - FULL WIDTH */
+      #api #attributeList ul li input,
+      #api input[type="email"],
+      #api input[type="password"],
+      #api input[type="text"] {
+        width: 100% !important;
+        height: 46px !important;
+        padding: 0 14px !important;
+        border-radius: 8px !important;
+        border: 1.5px solid #d1d5db !important;
+        font-size: 14px !important;
+        background: #fff !important;
+        text-indent: 0 !important;
+        box-shadow: none !important;
+      }
+
+      /* Remove Azure width wrappers */
+      #api .entry-item,
+      #api .attrEntry,
+      #api .attrEntry div {
+        width: 100% !important;
+      }
+
+      /* Spacing between fields */
+      #attributeList ul li {
+        margin-bottom: 16px !important;
+      }
+
+      /* Forgot password + Remember me in one row */
+      #api .password-label,
+      #api .rememberMe {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 8px 0 16px !important;
+        text-align: left !important;
+      }
+
+      /* Fix remember me checkbox */
+      #api .rememberMe input[type="checkbox"] {
+        margin-right: 6px !important;
+      }
+
+      /* Sign-in button FULL WIDTH */
+      #api .buttons button,
+      #api #next {
+        width: 100% !important;
+        height: 46px !important;
+        border-radius: 8px !important;
+        background: #2563eb !important;
+        color: #fff !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        border: none !important;
+        margin-top: 10px !important;
+      }
+
+      /* Remove center alignment from Azure */
+      #api .buttons {
+        text-align: left !important;
+      }
+
+      /* OR + signup text alignment */
+      #api .divider,
+      #api .create,
+      #api .claims-provider-list-text-links {
+        text-align: left !important;
+        margin-top: 16px !important;
+      }
     </style>
   </head>
   <body>
@@ -1479,7 +1592,7 @@
         <div class="b2c-brand">
           <h1>SOLUM</h1>
           <p>
-            SSmart Retail solution unifying ESL, digital signage, AI & IoT
+            Smart Retail solution unifying ESL, digital signage, AI & IoT
             technologies
           </p>
         </div>
