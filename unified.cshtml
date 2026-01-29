@@ -6,7 +6,7 @@
 
     <style>
       /* ================================
-   GLOBAL RESET
+GLOBAL RESET
 ================================ */
       * {
         box-sizing: border-box;
@@ -21,23 +21,21 @@
       }
 
       /* ================================
-   FIX AZURE B2C WRAPPERS
+FIX AZURE B2C WRAPPERS (SAFE WAY)
 ================================ */
 
-      /* Kill Azure default container layout */
+      /* DO NOT use all:unset (breaks B2C) */
       body > .container,
       body > .container > .row,
-      body > .container > .row > div,
-      .panel,
-      .panel-body {
-        all: unset !important;
-        display: block !important;
-        width: auto !important;
+      body > .container > .row > div {
+        width: 100% !important;
         height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       /* ================================
-   MAIN LAYOUT
+MAIN LAYOUT
 ================================ */
 
       .b2c-layout {
@@ -58,7 +56,7 @@
 
       .login-box {
         width: 100%;
-        max-width: 360px;
+        max-width: 380px;
       }
 
       .login-box h2 {
@@ -69,7 +67,7 @@
       }
 
       /* ================================
-   AZURE B2C FORM FIX
+AZURE B2C FORM (REAL FIX)
 ================================ */
 
       #api {
@@ -84,36 +82,48 @@
         display: none !important;
       }
 
-      /* Attribute list layout */
+      /* Force Azure list full width */
+      #attributeList,
+      #attributeList ul,
+      #attributeList ul li,
+      #attributeList ul li .attrEntry {
+        width: 100% !important;
+      }
+
+      /* Remove default list styles */
       #attributeList ul {
         list-style: none !important;
         padding: 0 !important;
         margin: 0 !important;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+      }
+
+      /* Space between fields */
+      #attributeList ul li {
+        margin-bottom: 14px !important;
       }
 
       /* Labels */
       #attributeList label {
         font-size: 13px !important;
-        font-weight: 600;
-        color: #374151 !important;
-        margin-bottom: 4px;
+        font-weight: 600 !important;
+        color: #111827 !important;
+        margin-bottom: 6px !important;
         display: block !important;
       }
 
-      /* Inputs */
+      /* INPUTS - FINAL OVERRIDE */
+      #attributeList input,
       #attributeList input[type="email"],
       #attributeList input[type="password"],
       #attributeList input[type="text"] {
         width: 100% !important;
-        height: 44px !important;
+        height: 46px !important;
         padding: 0 14px !important;
-        border-radius: 6px !important;
-        border: 1px solid #d1d5db !important;
-        font-size: 14px !important;
-        background: #fff !important;
+        border-radius: 8px !important;
+        border: 1.5px solid #d1d5db !important;
+        font-size: 15px !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
       }
 
       /* Focus */
@@ -123,12 +133,14 @@
         box-shadow: 0 0 0 1px #2563eb !important;
       }
 
-      /* Checkbox row */
+      /* Checkbox */
       #attributeList input[type="checkbox"] {
-        margin-right: 6px !important;
+        width: 16px !important;
+        height: 16px !important;
+        margin-right: 8px !important;
       }
 
-      /* Forgot password & links */
+      /* Links */
       #api a {
         font-size: 13px !important;
         color: #2563eb !important;
@@ -139,17 +151,23 @@
         text-decoration: underline !important;
       }
 
-      /* Buttons */
-      .buttons button,
-      .buttons input[type="submit"] {
+      /* BUTTONS - REAL FIX */
+      #api .buttons,
+      #api .buttons div {
         width: 100% !important;
-        height: 44px !important;
-        border-radius: 6px !important;
+      }
+
+      #api .buttons button,
+      #api .buttons input[type="submit"],
+      #api #next {
+        width: 100% !important;
+        height: 46px !important;
+        border-radius: 8px !important;
         background: #2563eb !important;
-        color: #fff !important;
-        border: none !important;
+        color: #ffffff !important;
         font-size: 15px !important;
         font-weight: 600 !important;
+        border: none !important;
         cursor: pointer !important;
       }
 
@@ -157,21 +175,13 @@
       .claims-provider-list button {
         width: 100% !important;
         height: 42px !important;
-        border-radius: 6px !important;
+        border-radius: 8px !important;
         font-size: 14px !important;
         margin-top: 8px !important;
       }
 
-      /* OR separator */
-      .separator {
-        text-align: center !important;
-        margin: 12px 0 !important;
-        font-size: 13px !important;
-        color: #6b7280 !important;
-      }
-
       /* ================================
-   RIGHT PANEL
+RIGHT PANEL
 ================================ */
 
       .right-panel {
@@ -196,7 +206,7 @@
       }
 
       /* ================================
-   RESPONSIVE
+RESPONSIVE
 ================================ */
 
       @media (max-width: 900px) {
@@ -207,7 +217,6 @@
         .left-panel,
         .right-panel {
           width: 100%;
-          height: auto;
         }
       }
     </style>
@@ -217,7 +226,7 @@
       <!-- LEFT LOGIN FORM -->
       <div class="left-panel">
         <div class="login-box">
-          <h2>Sign In Test</h2>
+          <h2>Sign In New</h2>
           <div id="api"></div>
         </div>
       </div>
