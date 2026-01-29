@@ -986,14 +986,6 @@
             text-align: right;
         }
 
-        .unified_container .row .panel-default #api .localAccount .rememberMe {
-            margin-top: -2rem;
-            text-align: right;
-            margin-left: 59%;
-            position: relative;
-            width: 15rem;
-        }
-
         .unified_container .row .panel-default #api .localAccount .rememberMe.align-to-left {
             margin-top: 0.5rem;
             text-align: left;
@@ -1173,10 +1165,6 @@
                 width: 100%;
             }
 
-            .unified_container .row .panel-default #api .localAccount .entry .entry-item .password-label #forgotPassword {
-                bottom: -1rem;
-            }
-
             .forgot-password.center-height {
                 top: 0;
                 right: 12rem;
@@ -1330,6 +1318,92 @@
         /* Fix spacing between fields */
         #api .entry-item {
             margin-bottom: 12px;
+        }
+
+        /* ================================
+   FINAL AZURE B2C LOGIN FIX
+================================ */
+
+        /* Sign-in title LEFT */
+        #api .intro h2 {
+            text-align: left !important;
+            margin-bottom: 8px;
+        }
+
+        /* Hide subtitle */
+        #api .intro p {
+            display: none !important;
+        }
+
+        /* Show labels */
+        #api .entry-item label {
+            display: block !important;
+            text-align: left !important;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        /* ================================
+   PASSWORD + FORGOT + REMEMBER ROW
+================================ */
+
+        /* Reset old broken styles */
+        .unified_container .password-label,
+        .unified_container .rememberMe {
+            all: unset !important;
+        }
+
+        /* Create single row layout */
+        #api .password-label {
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        /* Forgot password → RIGHT */
+        #api #forgotPassword {
+            font-size: 13px;
+            color: #296ec6;
+            text-decoration: none;
+            margin-left: auto;
+            white-space: nowrap;
+            position: static !important;
+        }
+
+        /* Remember me → SAME ROW LEFT */
+        #api .rememberMe {
+            display: flex !important;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            text-align: left !important;
+            width: 100%;
+        }
+
+        /* ================================
+   INPUTS & BUTTON
+================================ */
+
+        #api input[type="email"],
+        #api input[type="password"] {
+            width: 100% !important;
+        }
+
+        /* Full width Sign-in button */
+        #api .buttons button,
+        #api #next {
+            width: 100% !important;
+            height: 50px !important;
+            margin-top: 12px;
+            border-radius: 6px;
+        }
+
+        /* spacing */
+        #api .entry-item {
+            margin-bottom: 10px;
         }
     </style>
 </head>
