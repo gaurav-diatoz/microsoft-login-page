@@ -1,246 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Sign In</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <title>Sign In</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-      /* ================================
-GLOBAL RESET
-================================ */
-      * {
-        box-sizing: border-box;
-        font-family: "Segoe UI", Arial, sans-serif;
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #f5f7fa;
+    }
+
+    /* ===============================
+       MAIN SPLIT LAYOUT (SAFE)
+    =============================== */
+
+    .b2c-wrapper {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* LEFT LOGIN PANEL */
+    .b2c-left {
+      width: 35%;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid #e5e7eb;
+    }
+
+    /* IMPORTANT: keep Azure panel layout */
+    .unified_container {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .panel {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .panel-body {
+      padding: 0 !important;
+    }
+
+    /* RIGHT BRAND PANEL */
+    .b2c-right {
+      width: 65%;
+      background: linear-gradient(135deg, #0a0f2c, #1b2a6b);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .brand h1 {
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .brand p {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    /* ===============================
+       AZURE INPUT FIX (SAFE OVERRIDE)
+    =============================== */
+
+    #api {
+      width: 100% !important;
+    }
+
+    #attributeList ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    #attributeList ul li {
+      margin-bottom: 14px;
+      width: 100%;
+    }
+
+    #attributeList ul li input {
+      width: 100% !important;
+      height: 46px !important;
+      padding: 0 14px !important;
+      border-radius: 8px !important;
+      border: 1.5px solid #d1d5db !important;
+      font-size: 15px !important;
+      background: #fff !important;
+    }
+
+    #attributeList ul li input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+
+    .buttons button,
+    .buttons input[type="submit"] {
+      width: 100% !important;
+      height: 46px !important;
+      border-radius: 8px !important;
+      background: #2563eb !important;
+      color: #fff !important;
+      border: none !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+    }
+
+    /* Hide Microsoft default headings */
+    #api h1,
+    #api h2,
+    #api h3,
+    #api .intro {
+      display: none !important;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .b2c-wrapper {
+        flex-direction: column;
       }
-
-      html,
-      body {
-        margin: 0 !important;
-        height: 100% !important;
-        background: #f5f7fa !important;
-      }
-
-      /* ================================
-FIX AZURE B2C WRAPPERS (SAFE WAY)
-================================ */
-
-      /* DO NOT use all:unset (breaks B2C) */
-      body > .container,
-      body > .container > .row,
-      body > .container > .row > div {
-        width: 100% !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      /* ================================
-MAIN LAYOUT
-================================ */
-
-      .b2c-layout {
-        display: flex;
-        height: 100vh;
+      .b2c-left,
+      .b2c-right {
         width: 100%;
       }
+    }
+  </style>
+</head>
 
-      /* LEFT PANEL */
-      .left-panel {
-        width: 32%;
-        background: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 1px solid #e5e7eb;
-      }
+<body>
 
-      .login-box {
-        width: 100%;
-        max-width: 380px;
-      }
+<div class="b2c-wrapper">
 
-      .login-box h2 {
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #111827;
-      }
+  <!-- LEFT LOGIN PANEL -->
+  <div class="b2c-left">
+    <div class="container unified_container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
 
-      /* ================================
-AZURE B2C FORM (REAL FIX)
-================================ */
+              <img
+                class="companyLogo"
+                src="https://gaurav-diatoz.github.io/microsoft-login-page/logo.svg"
+                alt="Company Logo"
+                style="margin-bottom: 20px;"
+              />
 
-      #api {
-        width: 100% !important;
-      }
+              <div id="api" role="main"></div>
 
-      /* Remove Microsoft headings */
-      #api h1,
-      #api h2,
-      #api h3,
-      #api .intro {
-        display: none !important;
-      }
-
-      /* Force Azure list full width */
-      #attributeList,
-      #attributeList ul,
-      #attributeList ul li,
-      #attributeList ul li .attrEntry {
-        width: 100% !important;
-      }
-
-      /* Remove default list styles */
-      #attributeList ul {
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-
-      /* Space between fields */
-      #attributeList ul li {
-        margin-bottom: 14px !important;
-      }
-
-      /* Labels */
-      #attributeList label {
-        font-size: 13px !important;
-        font-weight: 600 !important;
-        color: #111827 !important;
-        margin-bottom: 6px !important;
-        display: block !important;
-      }
-
-      /* INPUTS - FINAL OVERRIDE */
-      #attributeList input,
-      #attributeList input[type="email"],
-      #attributeList input[type="password"],
-      #attributeList input[type="text"] {
-        width: 100% !important;
-        height: 46px !important;
-        padding: 0 14px !important;
-        border-radius: 8px !important;
-        border: 1.5px solid #d1d5db !important;
-        font-size: 15px !important;
-        background: #ffffff !important;
-        box-shadow: none !important;
-      }
-
-      /* Focus */
-      #attributeList input:focus {
-        outline: none !important;
-        border-color: #2563eb !important;
-        box-shadow: 0 0 0 1px #2563eb !important;
-      }
-
-      /* Checkbox */
-      #attributeList input[type="checkbox"] {
-        width: 16px !important;
-        height: 16px !important;
-        margin-right: 8px !important;
-      }
-
-      /* Links */
-      #api a {
-        font-size: 13px !important;
-        color: #2563eb !important;
-        text-decoration: none !important;
-      }
-
-      #api a:hover {
-        text-decoration: underline !important;
-      }
-
-      /* BUTTONS - REAL FIX */
-      #api .buttons,
-      #api .buttons div {
-        width: 100% !important;
-      }
-
-      #api .buttons button,
-      #api .buttons input[type="submit"],
-      #api #next {
-        width: 100% !important;
-        height: 46px !important;
-        border-radius: 8px !important;
-        background: #2563eb !important;
-        color: #ffffff !important;
-        font-size: 15px !important;
-        font-weight: 600 !important;
-        border: none !important;
-        cursor: pointer !important;
-      }
-
-      /* Social login buttons */
-      .claims-provider-list button {
-        width: 100% !important;
-        height: 42px !important;
-        border-radius: 8px !important;
-        font-size: 14px !important;
-        margin-top: 8px !important;
-      }
-
-      /* ================================
-RIGHT PANEL
-================================ */
-
-      .right-panel {
-        width: 68%;
-        background: linear-gradient(135deg, #0a0f2c, #1b2a6b);
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 40px;
-      }
-
-      .brand h1 {
-        font-size: 48px;
-        letter-spacing: 2px;
-      }
-
-      .brand p {
-        font-size: 15px;
-        opacity: 0.85;
-      }
-
-      /* ================================
-RESPONSIVE
-================================ */
-
-      @media (max-width: 900px) {
-        .b2c-layout {
-          flex-direction: column;
-        }
-
-        .left-panel,
-        .right-panel {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="b2c-layout">
-      <!-- LEFT LOGIN FORM -->
-      <div class="left-panel">
-        <div class="login-box">
-          <h2>Sign In New</h2>
-          <div id="api"></div>
-        </div>
-      </div>
-
-      <!-- RIGHT BRAND SECTION -->
-      <div class="right-panel">
-        <div class="brand">
-          <h1>SOLUM</h1>
-          <p>
-            Smart Retail solution unifying ESL, digital signage, AI & IoT
-            technologies
-          </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+  <!-- RIGHT BRAND PANEL -->
+  <div class="b2c-right">
+    <div class="brand">
+      <h1>SOLUM</h1>
+      <p>Smart Retail solution unifying ESL, digital signage, AI & IoT technologies</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
 </html>
