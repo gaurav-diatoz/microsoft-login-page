@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <style>
+
+/* Remove default Microsoft layout */
+.container,
+.row,
+.panel,
+.panel-body {
+  all: unset !important;
+}
 
 /* Hide Microsoft headings */
 #api .heading,
@@ -12,7 +22,7 @@
   display: none !important;
 }
 
-/* Attribute list layout */
+/* Azure B2C form list */
 #attributeList ul {
   list-style: none;
   padding: 0;
@@ -20,6 +30,14 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* Labels */
+#attributeList label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
 }
 
 /* Inputs */
@@ -32,32 +50,65 @@
   border-radius: 6px;
   border: 1px solid #d1d5db;
   font-size: 14px;
+  transition: 0.2s;
 }
 
-/* Button */
-.buttons button {
+#attributeList input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+/* Checkbox row */
+#attributeList input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* Links (forgot password, signup) */
+#api a {
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+#api a:hover {
+  text-decoration: underline;
+}
+
+/* Sign-in button */
+.buttons button,
+.buttons input[type="submit"] {
   width: 100% !important;
   height: 44px;
   border-radius: 6px;
   background: #2563eb !important;
   color: #fff;
   border: none;
+  font-size: 15px;
   font-weight: 600;
+  cursor: pointer;
 }
 
-/* Forgot password link */
-#attributeList a {
+.buttons button:hover {
+  background: #1d4ed8 !important;
+}
+
+/* OR separator */
+#api .separator {
+  text-align: center;
+  margin: 12px 0;
   font-size: 13px;
-  color: #2563eb;
+  color: #6b7280;
 }
 
-/* Remove Microsoft spacing */
-.panel,
-.panel-body,
-.container,
-.row {
-  all: unset !important;
+/* Error messages */
+.error,
+.validation-summary-errors {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 8px;
 }
+
 </style>
 </head>
 <body>
