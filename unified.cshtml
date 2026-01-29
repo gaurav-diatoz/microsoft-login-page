@@ -1311,6 +1311,85 @@
             height: 50px;
             margin-top: 16px;
         }
+
+        /* ===============================
+   FIX SIGN-IN TITLE ALIGNMENT
+================================ */
+
+        /* 1️⃣ Move "Sign in" to LEFT */
+        #api .intro h2 {
+            text-align: left !important;
+            margin-bottom: 6px;
+        }
+
+        /* 2️⃣ Hide "Sign in with your email address" */
+        #api .intro p {
+            display: none !important;
+        }
+
+        /* ===============================
+   SHOW EMAIL & PASSWORD LABELS
+================================ */
+
+        /* 3️⃣ Show labels (Azure B2C hides them by default) */
+        #api .entry-item label {
+            display: block !important;
+            text-align: left !important;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* ===============================
+   FORGOT PASSWORD → RIGHT SIDE
+================================ */
+
+        #api .password-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 6px;
+        }
+
+        /* Move forgot password to right */
+        #api #forgotPassword {
+            margin-left: auto !important;
+            font-size: 13px;
+            text-align: right;
+            position: static !important;
+        }
+
+        /* ===============================
+   KEEP ME SIGNED IN → LEFT
+================================ */
+
+        #api .rememberMe {
+            text-align: left !important;
+            width: 100% !important;
+            margin-top: 8px !important;
+            margin-left: 0 !important;
+        }
+
+        /* ===============================
+   FULL WIDTH SIGN-IN BUTTON
+================================ */
+
+        #api .buttons button,
+        #api #next {
+            width: 100% !important;
+            height: 50px !important;
+            margin-top: 14px;
+        }
+
+        /* ===============================
+   INPUT FULL WIDTH
+================================ */
+
+        #api input[type="email"],
+        #api input[type="password"] {
+            width: 100% !important;
+        }
     </style>
 </head>
 <div class="b2c-layout">
