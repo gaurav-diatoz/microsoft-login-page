@@ -1407,70 +1407,45 @@
   }
 }
 
-/* ================= FIX FORGOT + REMEMBER SAME ROW ================= */
+/* ================= ENTRY CONTAINER ================= */
 
-/* Remove Microsoft absolute positioning */
-.unified_container 
-.localAccount 
-.entry 
-.entry-item 
-.password-label 
-#forgotPassword {
-  position: static !important;
-  bottom: auto !important;
-  clear: none !important;
-}
-
-/* Make password container normal flow */
-.unified_container 
-.localAccount 
-.entry 
-.entry-item 
-.password-label {
-  height: auto !important;
-  position: static !important;
-  margin-top: 6px !important;
-}
-
-/* Create one flex row for remember section */
-.unified_container .localAccount .rememberMe {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  margin: 14px 0 !important;
+.unified_container .localAccount .entry {
   position: relative !important;
 }
 
-/* Left side (checkbox + text) */
-.rememberMe label {
+/* ================= REMEMBER ME LEFT ================= */
+
+.unified_container .localAccount .rememberMe {
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;
-  margin: 0 !important;
+  margin: 18px 0 !important;
+  width: auto !important;
+  text-align: left !important;
 }
 
-/* Checkbox size */
+/* Fix checkbox size */
 #rememberMe {
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
 }
 
-/* Move forgot inside same visual row */
-.unified_container .localAccount .rememberMe::after {
-  content: "";
-}
+/* ================= FORGOT RIGHT ================= */
 
-/* Place forgot link on right side */
+.unified_container 
+.localAccount 
+.entry 
+.entry-item 
+.password-label 
 #forgotPassword {
   position: absolute !important;
   right: 0 !important;
+  top: 110px !important;  /* adjust if needed */
   color: #2b2565 !important;
   font-weight: 500 !important;
   text-decoration: none !important;
 }
-
   </style>
   </head>
   <body>
