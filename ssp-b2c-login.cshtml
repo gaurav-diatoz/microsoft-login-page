@@ -1518,11 +1518,21 @@
 .entry-item 
 label {
   display: block !important;
-  text-align: left !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   margin-bottom: 6px !important;
-  font-size: 14px !important;
+  text-align: left !important;
   color: #333 !important;
+}
+
+/* Show password label container */
+.unified_container 
+.localAccount 
+.password-label {
+  display: block !important;
+  height: auto !important;
+  position: static !important;
+  margin-bottom: 6px !important;
 }
 
 /* Add spacing between label + input */
@@ -1532,26 +1542,34 @@ label {
 .entry-item {
   margin-bottom: 14px !important;
 }
-/* ================= STACK MAIN SECTIONS ================= */
+/* ================= MAKE API FLEX CONTAINER ================= */
 
 .unified_container #api {
   display: flex !important;
   flex-direction: column !important;
 }
 
-/* Move create section below social */
+/* Local form first */
 .unified_container .localAccount {
   order: 1 !important;
 }
 
+/* Divider + Social second */
 .unified_container .social {
   order: 2 !important;
 }
 
-.unified_container .create {
+/* Move CREATE section OUTSIDE visual flow */
+.unified_container .localAccount .create {
   order: 3 !important;
+  margin-top: 25px !important;
   text-align: center !important;
-  margin-top: 20px !important;
+}
+
+/* Important: remove negative margin from old template */
+.unified_container .row .panel-default #api .localAccount .create p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
   </style>
