@@ -1482,56 +1482,55 @@
 
   function updateTexts() {
 
-    /* 1️⃣ Sign in → Sign In */
+    /* 1️⃣ Sign in → Sign In (Heading) */
     const heading = document.querySelector(".heading h1");
-    if (heading && heading.innerText.trim() === "Sign in") {
+    if (heading) {
       heading.innerText = "Sign In";
     }
 
     /* 2️⃣ Keep me signed in → Remember me */
-    const rememberLabel = document.querySelector("label[for='rememberMe']");
+    const rememberLabel = document.querySelector(".rememberMe label");
     if (rememberLabel) {
       rememberLabel.innerText = "Remember me";
     }
 
     /* 3️⃣ Sign up now → Sign up */
-    const signUp = document.querySelector("#createAccount");
+    const signUp = document.querySelector(".create a");
     if (signUp) {
       signUp.innerText = "Sign up";
     }
 
-    /* 4️⃣ Google → Continue with Google */
-    const googleBtn = document.querySelector("#GoogleExchange");
-    if (googleBtn) {
-      googleBtn.innerText = "Continue with Google";
-    }
+    /* 4️⃣ Social buttons */
+    const socialButtons = document.querySelectorAll(".accountButton");
 
-    /* 5️⃣ Microsoft → Continue with Microsoft */
-    const msBtn = document.querySelector("#MicrosoftAccountExchange");
-    if (msBtn) {
-      msBtn.innerText = "Continue with Microsoft";
-    }
+    socialButtons.forEach(btn => {
 
-    /* 6️⃣ Forgot your password? → Forgot password? */
+      if (btn.innerText.includes("Google")) {
+        btn.innerText = "Continue with Google";
+      }
+
+      if (btn.innerText.includes("Microsoft")) {
+        btn.innerText = "Continue with Microsoft";
+      }
+
+    });
+
+    /* 5️⃣ Forgot your password? */
     const forgot = document.querySelector("#forgotPassword");
     if (forgot) {
       forgot.innerText = "Forgot password?";
     }
+
   }
 
-  // Observe #api because B2C injects content dynamically
-  const target = document.querySelector("#api");
+  const observer = new MutationObserver(updateTexts);
 
-  if (target) {
-    const observer = new MutationObserver(function () {
-      updateTexts();
-    });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 
-    observer.observe(target, {
-      childList: true,
-      subtree: true
-    });
-  }
+  updateTexts();
 
 })();
 </script>
