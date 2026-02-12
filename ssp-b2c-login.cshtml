@@ -1452,37 +1452,53 @@
   flex-direction: column !important;
 }
 
-/* Force forgot password to appear ABOVE remember row */
+/* ================= RESET MICROSOFT POSITIONING ================= */
+
+.unified_container .password-label,
+.unified_container .rememberMe {
+  position: static !important;
+  float: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* ================= CREATE ROW BELOW PASSWORD ================= */
+
+.unified_container .localAccount {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Move forgot password directly under password */
 .unified_container .password-label {
-  order: 3 !important;
   display: flex !important;
   justify-content: flex-end !important;
   margin-top: -10px !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 10px !important;
 }
 
 /* Remember row */
 .unified_container .rememberMe {
-  order: 4 !important;
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
+  margin-bottom: 18px !important;
 }
 
-/* Checkbox sizing */
+/* Checkbox size */
 #rememberMe {
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
 }
 
-/* Label alignment */
+/* Label styling */
 .rememberMe label {
   margin: 0 !important;
   font-weight: 500 !important;
 }
 
-/* Forgot password style */
+/* Forgot password link */
 #forgotPassword {
   color: #2b2565 !important;
   font-weight: 500 !important;
