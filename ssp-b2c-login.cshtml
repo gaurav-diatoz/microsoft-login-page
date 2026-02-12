@@ -1469,52 +1469,34 @@
   flex-direction: column !important;
 }
 
-/* ================= RESET MICROSOFT DEFAULT ================= */
+/* ========================================= */
+/* SAME ROW: REMEMBER LEFT + FORGOT RIGHT */
+/* ========================================= */
 
-.unified_container .row .panel-default #api .localAccount .entry .password-label {
+/* Reset Microsoft positioning */
+.unified_container .password-label,
+.unified_container .password-label #forgotPassword {
   position: static !important;
   height: auto !important;
-  order: 2 !important;
-  text-align: right !important;
-  margin-top: 6px !important;
-}
-
-/* Move password input above forgot link */
-.unified_container .row .panel-default #api .localAccount .entry #password {
-  order: 1 !important;
-}
-
-/* Make entry use flex column so we can control order */
-.unified_container .row .panel-default #api .localAccount .entry {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* Remove absolute positioning from forgot link */
-.unified_container .row .panel-default #api .localAccount .entry .password-label #forgotPassword {
-  position: static !important;
-  bottom: auto !important;
+  float: none !important;
   clear: none !important;
 }
 
-/* Style forgot */
-#forgotPassword {
-  color: #2b2565 !important;
-  font-weight: 500 !important;
-  text-decoration: none !important;
+/* Create horizontal row */
+.unified_container .localAccount .rememberMe {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 16px 0 !important;
 }
 
-/* ================= REMEMBER ME FIX ================= */
-
-.unified_container .row .panel-default #api .localAccount .rememberMe {
-  position: static !important;
-  margin: 16px 0 10px 0 !important;
-  width: 100% !important;
-  text-align: left !important;
-
+/* Keep checkbox left */
+.unified_container .localAccount .rememberMe label {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
+  margin: 0 !important;
 }
 
 /* Fix checkbox size */
@@ -1524,9 +1506,11 @@
   margin: 0 !important;
 }
 
-.rememberMe label {
-  margin: 0 !important;
+/* Style forgot */
+#forgotPassword {
+  color: #2b2565 !important;
   font-weight: 500 !important;
+  text-decoration: none !important;
 }
   </style>
   </head>
