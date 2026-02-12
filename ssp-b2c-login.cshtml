@@ -57,10 +57,12 @@
       #GoogleExchange:hover {
         background-color: #1a73e8 !important;
         color: white !important;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTIxLjM1IDEyLjI3YzAtLjc3LS4wNy0xLjUxLS4yLTEuMjhIMTJ2My4yN2g1LjA4Yy0uMjIgMS4xOS0uODkgMi4xOS0xLjkgMi44NnYyLjMzaDMuMDZjMS43OS0xLjY1IDIuODktNC4wOSAyLjg5LTcuMTd6Ii8+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTEyIDIyYzIuNDMgMCA0LjQ3LS44IDUuOTYtMi4xN2wtMy4wNi0yLjMzYy0uODQuNTYtMS45MS44OS0yLjkgLjg5LTIuMjIgMC00LjEtMS41LTQuNzYtMy41MkgxLjEzVjE4LjE3QzIuNiAyMC40MyA3LjA1IDIyIDEyIDIyeiIvPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik00LjM0IDE0LjQ4Yy0uMTktLjU2LS4zMS0xLjE1LS4zMS0xLjc4cy4xMi0xLjIyLjMxLTEuNzhWOC4zMkgxLjEzQzAuNDEgOS44MyAwIDEwLjk5IDAgMTJzLjQxIDIuMTcgMS4xMyAzLjY4bDMuMjEtMi4yMnoiLz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTIgNC4zN2MxLjMyIDAgMi41LjQ1IDMuNDMuMS4zM2wyLjU3LTIuNTdDMTEuNDYgMS4xMiAxMiAyIDExLjkgMkgxMkM3LjA1IDIgMi42IDMuNTcgMS4xMyA1LjgzTDUuODcgOS4zNWMuNjYtMi4wMiAyLjU0LTMuNTIgNC43Ni0zLjUyeiIvPjwvc3ZnPg==");
       }
       #MicrosoftAccountExchange:hover {
         background-color: #2f2f2f !important;
         color: white !important;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMyAyMyI+PHJlY3QgZmlsbD0iI2ZmZmZmZiIgeD0iMSIgeT0iMSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIi8+PHJlY3QgZmlsbD0iI2ZmZmZmZiIgeD0iMTIiIHk9IjEiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIvPjxyZWN0IGZpbGw9IiNmZmZmZmYiIHg9IjEiIHk9IjEyIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiLz48cmVjdCBmaWxsPSIjZmZmZmZmIiB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIvPjwvc3ZnPg==");
       }
       #LinkedInExchange {
         background-image: url(https://login.microsoftonline.com/templates/src/idp_logos/colored/linkedin.svg);
@@ -1386,11 +1388,6 @@
   background-color: #fff !important;
 }
 
-.accountButton:hover {
-  background: #f5f5f9;
-  color: #000;
-}
-
 /* ================= HIDE EXTRA B2C TEXT ================= */
 
 .intro,
@@ -1480,5 +1477,56 @@
         </div>
       </div>
     </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  function updateTexts() {
+
+    /* 1️⃣ Sign in → Sign In */
+    const heading = document.querySelector(".heading h1");
+    if (heading && heading.innerText.trim() === "Sign in") {
+      heading.innerText = "Sign In";
+    }
+
+    /* 2️⃣ Keep me signed in → Remember me */
+    const rememberLabel = document.querySelector("label[for='rememberMe']");
+    if (rememberLabel) {
+      rememberLabel.innerText = "Remember me";
+    }
+
+    /* 3️⃣ Sign up now → Sign up */
+    const signUp = document.querySelector("#createAccount");
+    if (signUp) {
+      signUp.innerText = "Sign up";
+    }
+
+    /* 4️⃣ Google → Continue with Google */
+    const googleBtn = document.querySelector("#GoogleExchange");
+    if (googleBtn) {
+      googleBtn.innerText = "Continue with Google";
+    }
+
+    /* 5️⃣ Microsoft → Continue with Microsoft */
+    const msBtn = document.querySelector("#MicrosoftAccountExchange");
+    if (msBtn) {
+      msBtn.innerText = "Continue with Microsoft";
+    }
+
+    /* 6️⃣ Forgot your password? → Forgot password? */
+    const forgot = document.querySelector("#forgotPassword");
+    if (forgot) {
+      forgot.innerText = "Forgot password?";
+    }
+
+  }
+
+  // Run once
+  updateTexts();
+
+  // Run again in case B2C loads late
+  setTimeout(updateTexts, 1000);
+
+});
+</script>
   </body>
 </html>
