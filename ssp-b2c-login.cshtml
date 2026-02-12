@@ -1542,27 +1542,46 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
-/* Make panel-body flex container */
-.unified_container .panel-body {
+/* ============================= */
+/* MOVE SIGN UP BELOW SOCIAL     */
+/* ============================= */
+
+/* 1️⃣ Hide original sign-up block inside form */
+#localAccountForm .create {
+  display: none !important;
+}
+
+/* 2️⃣ Add spacing below social buttons */
+.claims-provider-list-buttons.social {
+  margin-bottom: 30px !important;
+  position: relative;
+}
+
+/* 3️⃣ Reposition original sign-up visually after social */
+#localAccountForm .create {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 20px !important;
+}
+
+/* 4️⃣ Force it to appear after social using order trick */
+#api {
   display: flex !important;
   flex-direction: column !important;
 }
 
-/* Ensure form comes first */
-#localAccountForm {
-  order: 1;
-}
-
-/* Social buttons second */
 .claims-provider-list-buttons.social {
-  order: 2;
+  order: 3 !important;
 }
 
-/* Move Sign up block to bottom */
+#localAccountForm {
+  order: 2 !important;
+}
+
 #localAccountForm .create {
-  order: 3;
-  text-align: center !important;
-  margin-top: 20px !important;
+  order: 4 !important;
 }
 
   </style>
