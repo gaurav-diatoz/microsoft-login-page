@@ -1406,16 +1406,43 @@
     border-radius: 0 !important;
   }
 }
-/* SAME ROW: CHECKBOX LEFT + FORGOT RIGHT */
 
-.unified_container .localAccount .rememberMe {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin: 14px 0 !important;
+/* ================= FIX FORGOT + REMEMBER SAME ROW ================= */
+
+/* Remove Microsoft absolute positioning */
+.unified_container 
+.localAccount 
+.entry 
+.entry-item 
+.password-label 
+#forgotPassword {
+  position: static !important;
+  bottom: auto !important;
+  clear: none !important;
 }
 
+/* Make password container normal flow */
+.unified_container 
+.localAccount 
+.entry 
+.entry-item 
+.password-label {
+  height: auto !important;
+  position: static !important;
+  margin-top: 6px !important;
+}
+
+/* Create one flex row for remember section */
+.unified_container .localAccount .rememberMe {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin: 14px 0 !important;
+  position: relative !important;
+}
+
+/* Left side (checkbox + text) */
 .rememberMe label {
   display: flex !important;
   align-items: center !important;
@@ -1423,18 +1450,26 @@
   margin: 0 !important;
 }
 
+/* Checkbox size */
 #rememberMe {
   width: 16px !important;
   height: 16px !important;
+  margin: 0 !important;
 }
 
+/* Move forgot inside same visual row */
+.unified_container .localAccount .rememberMe::after {
+  content: "";
+}
+
+/* Place forgot link on right side */
 #forgotPassword {
-  position: static !important;
+  position: absolute !important;
+  right: 0 !important;
   color: #2b2565 !important;
   font-weight: 500 !important;
   text-decoration: none !important;
 }
-
 
   </style>
   </head>
@@ -1456,29 +1491,5 @@
         </div>
       </div>
     </div>
-    <script>
-function moveForgotPassword() {
-  const forgot = document.querySelector("#forgotPassword");
-  const remember = document.querySelector(".rememberMe");
-
-  if (forgot && remember && !remember.contains(forgot)) {
-    remember.appendChild(forgot);
-    remember.style.display = "flex";
-    remember.style.justifyContent = "space-between";
-    remember.style.alignItems = "center";
-  }
-}
-
-const observer = new MutationObserver(function () {
-  moveForgotPassword();
-});
-
-observer.observe(document.body, {
-  childList: true,
-  subtree: true,
-});
-
-window.addEventListener("load", moveForgotPassword);
-</script>
   </body>
 </html>
