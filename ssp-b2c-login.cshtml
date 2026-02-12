@@ -1409,6 +1409,68 @@
         box-shadow: none !important;
       }
     }
+    /* 1. Hide unwanted default headings */
+    #api .intro,
+    #api .divider,
+    #api h2 {
+      display: none !important;
+    }
+    
+    /* 2. Reorder sections: form → OR → social */
+    #api {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    
+    .localAccount {
+      order: 1 !important;
+    }
+    
+    .social {
+      order: 3 !important;
+    }
+    
+    /* 3. Custom OR divider */
+    .social::before {
+      content: "or" !important;
+      margin: 24px 0 20px 0 !important;
+      color: #888 !important;
+      font-size: 13px !important;
+    }
+    
+    /* 4. Widen card */
+    .unified_container .panel-default {
+      max-width: 560px !important;
+    }
+    
+    /* 5. Align remember + forgot */
+    .rememberMe {
+      display: flex !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      margin-top: 4px !important;
+    }
+    
+    /* 6. Rename social button text */
+    #GoogleExchange::after {
+      content: "Continue with Google";
+    }
+    
+    #MicrosoftAccountExchange::after {
+      content: "Continue with Microsoft";
+    }
+    
+    /* Hide original text inside buttons */
+    #GoogleExchange,
+    #MicrosoftAccountExchange {
+      font-size: 0 !important;
+    }
+    
+    #GoogleExchange::after,
+    #MicrosoftAccountExchange::after {
+      font-size: 15px !important;
+      color: #222 !important;
+    }
   </style>
   </head>
   <body>
