@@ -1435,50 +1435,54 @@
     border-radius: 0 !important;
   }
 }
-/* ================= FINAL FIX – REMEMBER + FORGOT ROW ================= */
+/* ================= HARD RESET MICROSOFT POSITIONING ================= */
 
-/* 1️⃣ Remove Microsoft absolute positioning */
 .unified_container .password-label,
-.unified_container .password-label #forgotPassword {
+.unified_container .rememberMe {
   position: static !important;
-  height: auto !important;
-  bottom: auto !important;
-  top: auto !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 
-/* 2️⃣ Make form stack cleanly */
+/* ================= CREATE A CLEAN ROW ================= */
+
+/* Wrap both into visual row */
 .unified_container .localAccount .entry {
   display: flex !important;
   flex-direction: column !important;
-  gap: 14px !important;
 }
 
-/* 3️⃣ Make remember row full width */
-.unified_container .localAccount .rememberMe {
+/* Force forgot password to appear ABOVE remember row */
+.unified_container .password-label {
+  order: 3 !important;
   display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin: 6px 0 0 0 !important;
-  text-align: left !important;
+  justify-content: flex-end !important;
+  margin-top: -10px !important;
+  margin-bottom: 6px !important;
 }
 
-/* 4️⃣ Checkbox + label styling */
-.unified_container .rememberMe label {
+/* Remember row */
+.unified_container .rememberMe {
+  order: 4 !important;
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  font-weight: 500 !important;
-  margin: 0 !important;
 }
 
+/* Checkbox sizing */
 #rememberMe {
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
 }
 
-/* 5️⃣ Forgot password styling */
+/* Label alignment */
+.rememberMe label {
+  margin: 0 !important;
+  font-weight: 500 !important;
+}
+
+/* Forgot password style */
 #forgotPassword {
   color: #2b2565 !important;
   font-weight: 500 !important;
