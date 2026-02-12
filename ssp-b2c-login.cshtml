@@ -1457,14 +1457,28 @@
       </div>
     </div>
     <script>
-window.addEventListener("load", function () {
+function moveForgotPassword() {
   const forgot = document.querySelector("#forgotPassword");
   const remember = document.querySelector(".rememberMe");
 
   if (forgot && remember && !remember.contains(forgot)) {
     remember.appendChild(forgot);
+    remember.style.display = "flex";
+    remember.style.justifyContent = "space-between";
+    remember.style.alignItems = "center";
   }
+}
+
+const observer = new MutationObserver(function () {
+  moveForgotPassword();
 });
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true,
+});
+
+window.addEventListener("load", moveForgotPassword);
 </script>
   </body>
 </html>
