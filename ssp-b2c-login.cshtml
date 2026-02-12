@@ -1435,6 +1435,48 @@
     border-radius: 0 !important;
   }
 }
+/* ================= FIX REMEMBER + FORGOT ROW ================= */
+
+/* Make remember + forgot act like one row */
+.localAccount .entry {
+  position: relative !important;
+}
+
+/* Row container */
+.rememberMe {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-top: 10px !important;
+}
+
+/* Fix checkbox size */
+#rememberMe {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+}
+
+/* Align label properly */
+.rememberMe label {
+  margin: 0 !important;
+  font-weight: 500 !important;
+}
+
+/* Position forgot password on right side */
+.password-label {
+  position: absolute !important;
+  right: 0 !important;
+  top: 2px !important;
+  height: auto !important;
+}
+
+#forgotPassword {
+  position: static !important;
+  color: #2b2565 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
   </style>
   </head>
   <body>
