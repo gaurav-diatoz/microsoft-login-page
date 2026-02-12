@@ -1469,20 +1469,6 @@
   flex-direction: column !important;
 }
 
-/* ========================================= */
-/* SAME ROW: REMEMBER LEFT + FORGOT RIGHT */
-/* ========================================= */
-
-/* Reset Microsoft positioning */
-.unified_container .password-label,
-.unified_container .password-label #forgotPassword {
-  position: static !important;
-  height: auto !important;
-  float: none !important;
-  clear: none !important;
-}
-
-/* Create horizontal row */
 .unified_container .localAccount .rememberMe {
   display: flex !important;
   justify-content: space-between !important;
@@ -1491,23 +1477,21 @@
   margin: 16px 0 !important;
 }
 
-/* Keep checkbox left */
-.unified_container .localAccount .rememberMe label {
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  margin: 0 !important;
-}
-
-/* Fix checkbox size */
 #rememberMe {
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
 }
 
-/* Style forgot */
+.rememberMe label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
 #forgotPassword {
+  position: static !important;
   color: #2b2565 !important;
   font-weight: 500 !important;
   text-decoration: none !important;
@@ -1532,5 +1516,15 @@
         </div>
       </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const forgot = document.querySelector("#forgotPassword");
+      const remember = document.querySelector(".rememberMe");
+
+      if (forgot && remember) {
+        remember.appendChild(forgot);
+      }
+    });
+  </script>
   </body>
 </html>
