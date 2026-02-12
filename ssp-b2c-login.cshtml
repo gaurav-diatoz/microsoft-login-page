@@ -1542,36 +1542,27 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
-/* ================= REORDER SECTIONS ================= */
-
-.unified_container 
-#api {
+/* Make panel-body flex container */
+.unified_container .panel-body {
   display: flex !important;
   flex-direction: column !important;
 }
 
-/* Local account form */
-.unified_container 
-#api 
-.localAccount {
-  order: 1 !important;
+/* Ensure form comes first */
+#localAccountForm {
+  order: 1;
 }
 
-/* Social login buttons */
-.unified_container 
-#api 
-.social {
-  order: 2 !important;
+/* Social buttons second */
+.claims-provider-list-buttons.social {
+  order: 2;
 }
 
 /* Move Sign up block to bottom */
-.unified_container 
-#api 
-.localAccount 
-.create {
-  order: 3 !important;
-  margin-top: 20px !important;
+#localAccountForm .create {
+  order: 3;
   text-align: center !important;
+  margin-top: 20px !important;
 }
 
   </style>
