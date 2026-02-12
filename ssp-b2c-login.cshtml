@@ -1469,41 +1469,55 @@
   flex-direction: column !important;
 }
 
-/* Move forgot password directly under password */
-.unified_container .password-label {
-  display: flex !important;
-  justify-content: flex-end !important;
-  margin-top: -10px !important;
+/* ================= HARD OVERRIDE MICROSOFT ABSOLUTE POSITIONING ================= */
+
+.unified_container .row .panel-default #api .localAccount .entry .password-label {
+  position: static !important;
+  height: auto !important;
+  margin-top: 6px !important;
   margin-bottom: 10px !important;
+  text-align: right !important;
 }
 
-/* Remember row */
-.unified_container .rememberMe {
+/* Remove Microsoft's absolute rule */
+.unified_container .row .panel-default #api .localAccount .entry .password-label #forgotPassword {
+  position: static !important;
+  bottom: auto !important;
+  clear: none !important;
+}
+
+/* Style forgot link */
+#forgotPassword {
+  color: #2b2565 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+/* ================= REMEMBER ROW FIX ================= */
+
+.unified_container .row .panel-default #api .localAccount .rememberMe {
+  position: static !important;
+  margin: 0 0 20px 0 !important;
+  width: 100% !important;
+
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  margin-bottom: 18px !important;
 }
 
-/* Checkbox size */
+/* Fix checkbox size */
 #rememberMe {
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
 }
 
-/* Label styling */
+/* Fix label alignment */
 .rememberMe label {
   margin: 0 !important;
   font-weight: 500 !important;
 }
 
-/* Forgot password link */
-#forgotPassword {
-  color: #2b2565 !important;
-  font-weight: 500 !important;
-  text-decoration: none !important;
-}
   </style>
   </head>
   <body>
