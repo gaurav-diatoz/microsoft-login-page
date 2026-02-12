@@ -1406,6 +1406,35 @@
     border-radius: 0 !important;
   }
 }
+/* SAME ROW: CHECKBOX LEFT + FORGOT RIGHT */
+
+.unified_container .localAccount .rememberMe {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 14px 0 !important;
+}
+
+.rememberMe label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
+#rememberMe {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+#forgotPassword {
+  position: static !important;
+  color: #2b2565 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
 
   </style>
   </head>
@@ -1427,5 +1456,15 @@
         </div>
       </div>
     </div>
+    <script>
+window.addEventListener("load", function () {
+  const forgot = document.querySelector("#forgotPassword");
+  const remember = document.querySelector(".rememberMe");
+
+  if (forgot && remember && !remember.contains(forgot)) {
+    remember.appendChild(forgot);
+  }
+});
+</script>
   </body>
 </html>
