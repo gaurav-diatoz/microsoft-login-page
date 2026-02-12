@@ -1264,184 +1264,56 @@
     </style>
   <style>
     #background_branding_container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-image: url('https://gaurav-diatoz.github.io/microsoft-login-page/ssp_background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    /* ===== MODERN AIMS DESIGN ===== */
-    
-    /* Card container */
-    .unified_container .panel-default {
-      border-radius: 20px !important;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.08) !important;
-      padding: 40px 36px !important;
-      max-width: 520px !important;
-    }
-    
-    /* Logo spacing */
-    .companyLogo {
-      margin-bottom: 12px !important;
-      height: 64px !important;
-    }
-    
-    /* Title injected by B2C */
-    #api .intro h2 {
-      text-align: center !important;
-      font-size: 26px !important;
-      font-weight: 600 !important;
-      margin-bottom: 24px !important;
-    }
-    
-    /* Inputs */
-    .entry-item input {
-      border-radius: 12px !important;
-      border: 1px solid #e0e0e0 !important;
-      height: 50px !important;
-      font-size: 15px !important;
-      padding-left: 16px !important;
-    }
-    
-    .entry-item input:focus {
-      border: 1px solid #2b2565 !important;
-      box-shadow: 0 0 0 3px rgba(43,37,101,.1) !important;
-    }
-    
-    /* Remember me left */
-    .rememberMe {
-      margin-left: 0 !important;
-      text-align: left !important;
-    }
-    
-    /* Forgot password right */
-    .password-label #forgotPassword {
-      position: absolute !important;
-      right: 0 !important;
-      color: #2b2565 !important;
-      font-weight: 500 !important;
-    }
-    
-    /* PRIMARY SIGN IN BUTTON */
-    #next {
-      width: 100% !important;
-      background: #2b2565 !important;
-      border-radius: 12px !important;
-      height: 52px !important;
-      font-weight: 500 !important;
-      margin-top: 16px !important;
-    }
-    
-    #next:hover {
-      background: #1f1a4d !important;
-    }
-    
-    /* ===== OR DIVIDER ===== */
-    .social {
-      margin-top: 20px !important;
-    }
-    
-    .social::before {
-      content: "or";
-      display: block;
-      text-align: center;
-      color: #666;
-      margin: 10px 0;
-      position: relative;
-    }
-    
-    .social::after {
-      content: "";
-      display: block;
-      border-top: 1px solid #e5e5e5;
-      position: relative;
-      top: -26px;
-      z-index: -1;
-    }
-    
-    /* ===== SOCIAL BUTTONS ===== */
-    
-    .accountButton {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
-      border-radius: 12px !important;
-      height: 48px !important;
-      border: 1px solid #ddd !important;
-      font-size: 15px !important;
-      background-color: #fff !important;
-      color: #222 !important;
-    }
-    
-    .accountButton:hover {
-      background: #f5f5f9 !important;
-      color: #000 !important;
-    }
-    
-    /* Google & Microsoft icons already base64 */
-    #GoogleExchange,
-    #MicrosoftAccountExchange {
-      background-position: 16px center !important;
-      background-size: 18px !important;
-    }
-    
-    /* Sign up text */
-    .create p {
-      text-align: center !important;
-      margin-top: 20px !important;
-    }
-    
-    #createAccount {
-      color: #2b2565 !important;
-      font-weight: 500 !important;
-    }
-    
-    /* Mobile */
-    @media (max-width: 600px) {
-      .panel-default {
-        border-radius: 0 !important;
-        box-shadow: none !important;
-      }
-    }
-    /* ===== RESET MICROSOFT LAYOUT ===== */
-#api, .localAccount, .social {
-  all: unset;
-  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('https://gaurav-diatoz.github.io/microsoft-login-page/ssp_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* ===== CARD WIDTH ===== */
+/* ===== CARD ===== */
 .unified_container .panel-default {
+  border-radius: 20px !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.08) !important;
+  padding: 40px !important;
   max-width: 520px !important;
-  padding: 36px 40px !important;
 }
 
-/* ===== FORM STACK ===== */
+/* ===== LOGO ===== */
+.companyLogo {
+  margin-bottom: 12px !important;
+  height: 64px !important;
+}
+
+/* ===== INPUTS ===== */
+.entry-item input {
+  border-radius: 12px !important;
+  border: 1px solid #e0e0e0 !important;
+  height: 50px !important;
+  font-size: 15px !important;
+  padding-left: 16px !important;
+  width: 100% !important;
+}
+
+/* ===== REMEMBER + FORGOT ROW ===== */
 .localAccount .entry {
   display: flex !important;
   flex-direction: column !important;
   gap: 12px !important;
 }
 
-/* ===== INPUTS ===== */
-.entry-item input {
-  border-radius: 12px !important;
-  height: 50px !important;
-  border: 1px solid #ddd !important;
-}
-
-/* ===== REMEMBER + FORGOT ROW ===== */
 .rememberMe {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  margin-top: 6px !important;
+  margin: 6px 0 0 0 !important;
   width: 100% !important;
+  text-align: left !important;
 }
 
 .rememberMe label {
@@ -1456,19 +1328,13 @@
   font-weight: 500 !important;
 }
 
-/* ===== PRIMARY BUTTON ===== */
+/* ===== SIGN IN BUTTON ===== */
 #next {
   width: 100% !important;
   background: #2b2565 !important;
   border-radius: 12px !important;
   height: 52px !important;
   margin-top: 14px !important;
-}
-
-/* ===== SIGN UP TEXT ===== */
-.create {
-  text-align: center !important;
-  margin: 16px 0 !important;
 }
 
 /* ===== OR DIVIDER ===== */
@@ -1489,16 +1355,30 @@
   border-radius: 12px !important;
   height: 48px !important;
   margin-bottom: 10px !important;
+
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-/* ===== REMOVE B2C TEXT NOISE ===== */
+/* ===== SIGN UP TEXT ===== */
+.create p {
+  text-align: center !important;
+  margin-top: 16px !important;
+}
+
+/* ===== HIDE NOISE ===== */
 .intro,
 .divider,
 .localAccount .intro {
   display: none !important;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .panel-default {
+    border-radius: 0 !important;
+  }
 }
   </style>
   </head>
