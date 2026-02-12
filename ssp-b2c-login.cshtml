@@ -1469,36 +1469,48 @@
   flex-direction: column !important;
 }
 
-/* ================= HARD OVERRIDE MICROSOFT ABSOLUTE POSITIONING ================= */
+/* ================= RESET MICROSOFT DEFAULT ================= */
 
 .unified_container .row .panel-default #api .localAccount .entry .password-label {
   position: static !important;
   height: auto !important;
-  margin-top: 6px !important;
-  margin-bottom: 10px !important;
+  order: 2 !important;
   text-align: right !important;
+  margin-top: 6px !important;
 }
 
-/* Remove Microsoft's absolute rule */
+/* Move password input above forgot link */
+.unified_container .row .panel-default #api .localAccount .entry #password {
+  order: 1 !important;
+}
+
+/* Make entry use flex column so we can control order */
+.unified_container .row .panel-default #api .localAccount .entry {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Remove absolute positioning from forgot link */
 .unified_container .row .panel-default #api .localAccount .entry .password-label #forgotPassword {
   position: static !important;
   bottom: auto !important;
   clear: none !important;
 }
 
-/* Style forgot link */
+/* Style forgot */
 #forgotPassword {
   color: #2b2565 !important;
   font-weight: 500 !important;
   text-decoration: none !important;
 }
 
-/* ================= REMEMBER ROW FIX ================= */
+/* ================= REMEMBER ME FIX ================= */
 
 .unified_container .row .panel-default #api .localAccount .rememberMe {
   position: static !important;
-  margin: 0 0 20px 0 !important;
+  margin: 16px 0 10px 0 !important;
   width: 100% !important;
+  text-align: left !important;
 
   display: flex !important;
   align-items: center !important;
@@ -1512,7 +1524,6 @@
   margin: 0 !important;
 }
 
-/* Fix label alignment */
 .rememberMe label {
   margin: 0 !important;
   font-weight: 500 !important;
