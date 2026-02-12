@@ -1263,7 +1263,9 @@
       /* endinject */
     </style>
   <style>
-    #background_branding_container {
+    /* ================= BACKGROUND ================= */
+
+#background_branding_container {
   position: fixed;
   top: 0;
   left: 0;
@@ -1276,7 +1278,8 @@
   background-repeat: no-repeat;
 }
 
-/* ===== CARD ===== */
+/* ================= CARD ================= */
+
 .unified_container .panel-default {
   border-radius: 20px !important;
   box-shadow: 0 25px 50px rgba(0,0,0,0.08) !important;
@@ -1284,13 +1287,18 @@
   max-width: 520px !important;
 }
 
-/* ===== LOGO ===== */
-.companyLogo {
-  margin-bottom: 12px !important;
-  height: 64px !important;
+/* ================= REMOVE MICROSOFT BROKEN LAYOUT ================= */
+
+.unified_container .row .panel-default #api .localAccount .rememberMe {
+  margin: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+  position: static !important;
+  text-align: left !important;
 }
 
-/* ===== INPUTS ===== */
+/* ================= INPUTS ================= */
+
 .entry-item input {
   border-radius: 12px !important;
   border: 1px solid #e0e0e0 !important;
@@ -1300,81 +1308,128 @@
   width: 100% !important;
 }
 
-/* ===== REMEMBER + FORGOT ROW ===== */
+/* ================= STACK FORM ================= */
+
 .localAccount .entry {
   display: flex !important;
   flex-direction: column !important;
-  gap: 12px !important;
+  gap: 14px !important;
 }
+
+/* ================= REMEMBER + FORGOT ROW ================= */
 
 .rememberMe {
   display: flex !important;
-  justify-content: space-between !important;
   align-items: center !important;
-  margin: 6px 0 0 0 !important;
+  justify-content: space-between !important;
   width: 100% !important;
-  text-align: left !important;
+  margin-top: 8px !important;
 }
 
 .rememberMe label {
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;
+  font-weight: 500 !important;
+}
+
+#rememberMe {
+  width: auto !important;
+  height: auto !important;
 }
 
 #forgotPassword {
   position: static !important;
   color: #2b2565 !important;
   font-weight: 500 !important;
+  text-decoration: none !important;
 }
 
-/* ===== SIGN IN BUTTON ===== */
+/* ================= PRIMARY BUTTON ================= */
+
 #next {
   width: 100% !important;
   background: #2b2565 !important;
   border-radius: 12px !important;
   height: 52px !important;
   margin-top: 14px !important;
+  box-shadow: none !important;
 }
 
-/* ===== OR DIVIDER ===== */
+#next:hover {
+  background: #1f1a4d !important;
+}
+
+/* ================= SIGN UP TEXT ================= */
+
+.create {
+  text-align: center !important;
+  margin: 18px 0 !important;
+}
+
+/* ================= PERFECT OR DIVIDER ================= */
+
 .social {
-  margin-top: 20px !important;
+  margin-top: 30px !important;
+  position: relative !important;
+  text-align: center !important;
+}
+
+.social::before,
+.social::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  width: 40%;
+  height: 1px;
+  background: #e0e0e0;
 }
 
 .social::before {
-  content: "or" !important;
-  display: block !important;
-  text-align: center !important;
-  margin: 10px 0 18px 0 !important;
-  color: #777 !important;
+  left: 0;
 }
 
-/* ===== SOCIAL BUTTONS ===== */
+.social::after {
+  right: 0;
+}
+
+.social .options::before {
+  content: "or";
+  position: relative;
+  background: #fff;
+  padding: 0 10px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* ================= SOCIAL BUTTONS ================= */
+
 .accountButton {
   border-radius: 12px !important;
   height: 48px !important;
-  margin-bottom: 10px !important;
-
+  margin-bottom: 12px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  border: 1px solid #ddd !important;
+  background-color: #fff !important;
 }
 
-/* ===== SIGN UP TEXT ===== */
-.create p {
-  text-align: center !important;
-  margin-top: 16px !important;
+.accountButton:hover {
+  background: #f5f5f9 !important;
+  color: #000 !important;
 }
 
-/* ===== HIDE NOISE ===== */
+/* ================= HIDE EXTRA B2C TEXT ================= */
+
 .intro,
 .divider,
 .localAccount .intro {
   display: none !important;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
+
 @media (max-width: 600px) {
   .panel-default {
     border-radius: 0 !important;
