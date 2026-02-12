@@ -1457,6 +1457,59 @@
 .label{
   margin-bottom: 0px !important;
 }
+/* 1️⃣ Sign in → Sign In */
+.heading h1 {
+  font-size: 0 !important;
+}
+.heading h1::after {
+  content: "Sign In";
+  font-size: 25px;
+}
+
+/* 2️⃣ Keep me signed in → Remember me */
+.rememberMe label {
+  font-size: 0 !important;
+}
+.rememberMe label::after {
+  content: "Remember me";
+  font-size: 14px;
+}
+
+/* 3️⃣ Sign up now → Sign up */
+#createAccount {
+  font-size: 0 !important;
+}
+#createAccount::after {
+  content: "Sign up";
+  font-size: 14px;
+}
+
+/* 4️⃣ Google → Continue with Google */
+#GoogleExchange {
+  font-size: 0 !important;
+}
+#GoogleExchange::after {
+  content: "Continue with Google";
+  font-size: 14px;
+}
+
+/* 5️⃣ Microsoft → Continue with Microsoft */
+#MicrosoftAccountExchange {
+  font-size: 0 !important;
+}
+#MicrosoftAccountExchange::after {
+  content: "Continue with Microsoft";
+  font-size: 14px;
+}
+
+/* 6️⃣ Forgot your password? → Forgot password? */
+#forgotPassword {
+  font-size: 0 !important;
+}
+#forgotPassword::after {
+  content: "Forgot password?";
+  font-size: 14px;
+}
   </style>
   </head>
   <body>
@@ -1477,62 +1530,5 @@
         </div>
       </div>
     </div>
-    <script>
-(function () {
-
-  function updateTexts() {
-
-    /* 1️⃣ Sign in → Sign In (Heading) */
-    const heading = document.querySelector(".heading h1");
-    if (heading) {
-      heading.innerText = "Sign In";
-    }
-
-    /* 2️⃣ Keep me signed in → Remember me */
-    const rememberLabel = document.querySelector(".rememberMe label");
-    if (rememberLabel) {
-      rememberLabel.innerText = "Remember me";
-    }
-
-    /* 3️⃣ Sign up now → Sign up */
-    const signUp = document.querySelector(".create a");
-    if (signUp) {
-      signUp.innerText = "Sign up";
-    }
-
-    /* 4️⃣ Social buttons */
-    const socialButtons = document.querySelectorAll(".accountButton");
-
-    socialButtons.forEach(btn => {
-
-      if (btn.innerText.includes("Google")) {
-        btn.innerText = "Continue with Google";
-      }
-
-      if (btn.innerText.includes("Microsoft")) {
-        btn.innerText = "Continue with Microsoft";
-      }
-
-    });
-
-    /* 5️⃣ Forgot your password? */
-    const forgot = document.querySelector("#forgotPassword");
-    if (forgot) {
-      forgot.innerText = "Forgot password?";
-    }
-
-  }
-
-  const observer = new MutationObserver(updateTexts);
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-
-  updateTexts();
-
-})();
-</script>
   </body>
 </html>
