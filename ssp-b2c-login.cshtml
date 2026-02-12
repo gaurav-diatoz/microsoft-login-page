@@ -1435,67 +1435,7 @@
     border-radius: 0 !important;
   }
 }
-/* ================= HARD RESET MICROSOFT POSITIONING ================= */
 
-.unified_container .password-label,
-.unified_container .rememberMe {
-  position: static !important;
-  margin: 0 !important;
-  width: 100% !important;
-}
-
-/* ================= CREATE A CLEAN ROW ================= */
-
-/* Wrap both into visual row */
-.unified_container .localAccount .entry {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* ================= RESET MICROSOFT POSITIONING ================= */
-
-.unified_container .password-label,
-.unified_container .rememberMe {
-  position: static !important;
-  float: none !important;
-  margin: 0 !important;
-  width: 100% !important;
-}
-
-/* ================= CREATE ROW BELOW PASSWORD ================= */
-
-.unified_container .localAccount {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.unified_container .localAccount .rememberMe {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin: 16px 0 !important;
-}
-
-#rememberMe {
-  width: 16px !important;
-  height: 16px !important;
-  margin: 0 !important;
-}
-
-.rememberMe label {
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  margin: 0 !important;
-}
-
-#forgotPassword {
-  position: static !important;
-  color: #2b2565 !important;
-  font-weight: 500 !important;
-  text-decoration: none !important;
-}
   </style>
   </head>
   <body>
@@ -1516,15 +1456,5 @@
         </div>
       </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const forgot = document.querySelector("#forgotPassword");
-      const remember = document.querySelector(".rememberMe");
-
-      if (forgot && remember) {
-        remember.appendChild(forgot);
-      }
-    });
-  </script>
   </body>
 </html>
