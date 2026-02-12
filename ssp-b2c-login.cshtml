@@ -1542,47 +1542,6 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
-/* ============================= */
-/* MOVE SIGN UP BELOW SOCIAL     */
-/* ============================= */
-
-/* 1️⃣ Hide original sign-up block inside form */
-#localAccountForm .create {
-  display: none !important;
-}
-
-/* 2️⃣ Add spacing below social buttons */
-.claims-provider-list-buttons.social {
-  margin-bottom: 30px !important;
-  position: relative;
-}
-
-/* 3️⃣ Reposition original sign-up visually after social */
-#localAccountForm .create {
-  display: block !important;
-  position: relative !important;
-  width: 100% !important;
-  text-align: center !important;
-  margin-top: 20px !important;
-}
-
-/* 4️⃣ Force it to appear after social using order trick */
-#api {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.claims-provider-list-buttons.social {
-  order: 3 !important;
-}
-
-#localAccountForm {
-  order: 2 !important;
-}
-
-#localAccountForm .create {
-  order: 4 !important;
-}
 
   </style>
   </head>
@@ -1604,5 +1563,37 @@ label {
         </div>
       </div>
     </div>
+    <script>
+  (function () {
+
+    function moveSignUp() {
+
+      const social = document.querySelector(".claims-provider-list-buttons.social");
+      const createBlock = document.querySelector("#localAccountForm .create");
+
+      if (social && createBlock && !createBlock.dataset.moved) {
+
+        social.parentNode.insertBefore(
+          createBlock,
+          social.nextSibling
+        );
+
+        createBlock.style.textAlign = "center";
+        createBlock.style.marginTop = "25px";
+
+        createBlock.dataset.moved = "true";
+      }
+    }
+
+    const observer = new MutationObserver(moveSignUp);
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+  })();
+  </script>
+
   </body>
 </html>
