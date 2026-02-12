@@ -1409,68 +1409,97 @@
         box-shadow: none !important;
       }
     }
-    /* 1. Hide unwanted default headings */
-    #api .intro,
-    #api .divider,
-    #api h2 {
-      display: none !important;
-    }
-    
-    /* 2. Reorder sections: form → OR → social */
-    #api {
-      display: flex !important;
-      flex-direction: column !important;
-    }
-    
-    .localAccount {
-      order: 1 !important;
-    }
-    
-    .social {
-      order: 3 !important;
-    }
-    
-    /* 3. Custom OR divider */
-    .social::before {
-      content: "or" !important;
-      margin: 24px 0 20px 0 !important;
-      color: #888 !important;
-      font-size: 13px !important;
-    }
-    
-    /* 4. Widen card */
-    .unified_container .panel-default {
-      max-width: 560px !important;
-    }
-    
-    /* 5. Align remember + forgot */
-    .rememberMe {
-      display: flex !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      margin-top: 4px !important;
-    }
-    
-    /* 6. Rename social button text */
-    #GoogleExchange::after {
-      content: "Continue with Google";
-    }
-    
-    #MicrosoftAccountExchange::after {
-      content: "Continue with Microsoft";
-    }
-    
-    /* Hide original text inside buttons */
-    #GoogleExchange,
-    #MicrosoftAccountExchange {
-      font-size: 0 !important;
-    }
-    
-    #GoogleExchange::after,
-    #MicrosoftAccountExchange::after {
-      font-size: 15px !important;
-      color: #222 !important;
-    }
+    /* ===== RESET MICROSOFT LAYOUT ===== */
+#api, .localAccount, .social {
+  all: unset;
+  display: block;
+}
+
+/* ===== CARD WIDTH ===== */
+.unified_container .panel-default {
+  max-width: 520px !important;
+  padding: 36px 40px !important;
+}
+
+/* ===== FORM STACK ===== */
+.localAccount .entry {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+/* ===== INPUTS ===== */
+.entry-item input {
+  border-radius: 12px !important;
+  height: 50px !important;
+  border: 1px solid #ddd !important;
+}
+
+/* ===== REMEMBER + FORGOT ROW ===== */
+.rememberMe {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: 6px !important;
+  width: 100% !important;
+}
+
+.rememberMe label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+#forgotPassword {
+  position: static !important;
+  color: #2b2565 !important;
+  font-weight: 500 !important;
+}
+
+/* ===== PRIMARY BUTTON ===== */
+#next {
+  width: 100% !important;
+  background: #2b2565 !important;
+  border-radius: 12px !important;
+  height: 52px !important;
+  margin-top: 14px !important;
+}
+
+/* ===== SIGN UP TEXT ===== */
+.create {
+  text-align: center !important;
+  margin: 16px 0 !important;
+}
+
+/* ===== OR DIVIDER ===== */
+.social {
+  margin-top: 20px !important;
+}
+
+.social::before {
+  content: "or" !important;
+  display: block !important;
+  text-align: center !important;
+  margin: 10px 0 18px 0 !important;
+  color: #777 !important;
+}
+
+/* ===== SOCIAL BUTTONS ===== */
+.accountButton {
+  border-radius: 12px !important;
+  height: 48px !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ===== REMOVE B2C TEXT NOISE ===== */
+.intro,
+.divider,
+.localAccount .intro {
+  display: none !important;
+}
   </style>
   </head>
   <body>
