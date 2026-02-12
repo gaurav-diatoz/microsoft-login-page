@@ -1542,6 +1542,38 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
+/* ================= REORDER SECTIONS ================= */
+
+.unified_container 
+#api {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Local account form */
+.unified_container 
+#api 
+.localAccount {
+  order: 1 !important;
+}
+
+/* Social login buttons */
+.unified_container 
+#api 
+.social {
+  order: 2 !important;
+}
+
+/* Move Sign up block to bottom */
+.unified_container 
+#api 
+.localAccount 
+.create {
+  order: 3 !important;
+  margin-top: 20px !important;
+  text-align: center !important;
+}
+
   </style>
   </head>
   <body>
