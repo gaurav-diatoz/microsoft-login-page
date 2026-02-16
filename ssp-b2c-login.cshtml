@@ -1563,38 +1563,36 @@ label {
         </div>
       </div>
     </div>
-   <script>
-(function () {
+  <script>
+window.addEventListener("load", function () {
 
-  function moveSignUp() {
+  const observer = new MutationObserver(function () {
 
-    const panelBody = document.querySelector(".panel-body");
     const social = document.querySelector(".claims-provider-list-buttons.social");
-    const createBlock = document.querySelector("#localAccountForm .create");
+    const create = document.querySelector("#localAccountForm .create");
+    const api = document.querySelector("#api");
 
-    if (panelBody && social && createBlock && !createBlock.dataset.moved) {
+    if (social && create && api && !create.dataset.moved) {
 
-      // Move signup BELOW social buttons
-      panelBody.insertBefore(
-        createBlock,
-        social.nextSibling
-      );
+      // Move Sign Up block AFTER social section
+      api.insertBefore(create, social.nextSibling);
 
-      createBlock.style.textAlign = "center";
-      createBlock.style.marginTop = "20px";
+      create.style.textAlign = "center";
+      create.style.marginTop = "20px";
 
-      createBlock.dataset.moved = "true";
+      create.dataset.moved = "true";
+
+      observer.disconnect(); // stop observing once done
     }
-  }
 
-  const observer = new MutationObserver(moveSignUp);
+  });
 
   observer.observe(document.body, {
     childList: true,
     subtree: true
   });
 
-})();
+});
 </script>
   </body>
 </html>
