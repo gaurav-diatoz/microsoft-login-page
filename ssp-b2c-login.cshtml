@@ -1542,28 +1542,30 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
-/* Make #api a flex container */
+/* Make main container flex */
 .unified_container .row .panel-default #api {
   display: flex !important;
   flex-direction: column !important;
 }
 
-/* Order elements properly */
+/* Keep form first */
 .unified_container #api .localAccount {
   order: 1 !important;
 }
 
+/* Move social below form */
 .unified_container #api .social {
   order: 2 !important;
   display: block !important;
   position: relative !important;
+  margin-top: 30px !important;
 }
 
+/* Push Sign up visually below social */
 #localAccountForm .create {
-  order: 3 !important;
-  text-align: center !important;
-  margin-top: 20px !important;
+  margin-top: 30px !important;
 }
+
   </style>
   </head>
   <body>
