@@ -998,6 +998,34 @@
         background-position: center;
         background-repeat: no-repeat;
       }
+/* Primary buttons */
+button,
+input[type="submit"],
+.btn,
+button[type="button"],
+button[type="submit"] {
+    background-color: #2b2565 !important;
+    border-color: #2b2565 !important;
+    color: #ffffff !important;
+}
+
+/* Hover state */
+button:hover,
+input[type="submit"]:hover,
+.btn:hover {
+    background-color: #2b2565 !important;
+    border-color: #2b2565 !important;
+    opacity: 0.9;
+}
+
+/* Disabled buttons */
+button:disabled,
+input[type="submit"]:disabled {
+    background-color: #2b2565 !important;
+    border-color: #2b2565 !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed;
+}
   </style>
   </head>
   <body>
