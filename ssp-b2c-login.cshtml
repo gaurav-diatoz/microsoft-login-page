@@ -1542,7 +1542,24 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
+/* Remove table layout from B2C */
+.unified_container .row .panel-default #api {
+  display: block !important;
+}
 
+/* Make social normal block */
+.unified_container .row .panel-default #api .social {
+  display: block !important;
+  position: relative !important;
+  top: 0 !important;
+}
+
+/* Move sign up below social */
+#localAccountForm .create {
+  display: block !important;
+  margin-top: 25px !important;
+  text-align: center !important;
+}
   </style>
   </head>
   <body>
@@ -1563,36 +1580,5 @@ label {
         </div>
       </div>
     </div>
-  <script>
-window.addEventListener("load", function () {
-
-  const observer = new MutationObserver(function () {
-
-    const social = document.querySelector(".claims-provider-list-buttons.social");
-    const create = document.querySelector("#localAccountForm .create");
-    const api = document.querySelector("#api");
-
-    if (social && create && api && !create.dataset.moved) {
-
-      // Move Sign Up block AFTER social section
-      api.insertBefore(create, social.nextSibling);
-
-      create.style.textAlign = "center";
-      create.style.marginTop = "20px";
-
-      create.dataset.moved = "true";
-
-      observer.disconnect(); // stop observing once done
-    }
-
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-
-});
-</script>
   </body>
 </html>
