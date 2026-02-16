@@ -1026,6 +1026,30 @@ input[type="submit"]:disabled {
     opacity: 0.5 !important;
     cursor: not-allowed;
 }
+/* ===============================
+   Cancel Button Override
+=================================*/
+#api a,
+#api .cancel,
+#api #cancel,
+#api button[name="cancel"] {
+    background-color: transparent !important;
+    border: none !important;
+    color: #2b2565 !important;
+    padding: 0 !important;
+    width: auto !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Optional hover */
+#api a:hover,
+#api button[name="cancel"]:hover {
+    text-decoration: underline;
+    background: transparent !important;
+}
+
   </style>
   </head>
   <body>
