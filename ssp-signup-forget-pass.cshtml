@@ -998,58 +998,81 @@
         background-position: center;
         background-repeat: no-repeat;
       }
-/* Primary buttons */
-button,
-input[type="submit"],
-.btn,
-button[type="button"],
-button[type="submit"] {
-    background-color: #2b2565 !important;
-    border-color: #2b2565 !important;
-    color: #ffffff !important;
-}
-
-/* Hover state */
-button:hover,
-input[type="submit"]:hover,
-.btn:hover {
-    background-color: #2b2565 !important;
-    border-color: #2b2565 !important;
-    opacity: 0.9;
-}
-
-/* Disabled buttons */
-button:disabled,
-input[type="submit"]:disabled {
-    background-color: #2b2565 !important;
-    border-color: #2b2565 !important;
-    opacity: 0.5 !important;
-    cursor: not-allowed;
-}
-/* ===============================
-   Cancel Button Override
-=================================*/
-#api a,
-#api .cancel,
-#api #cancel,
-#api button[name="cancel"] {
-    background-color: transparent !important;
-    border: none !important;
-    color: #2b2565 !important;
-    padding: 0 !important;
-    width: auto !important;
-    font-size: 14px !important;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-/* Optional hover */
-#api a:hover,
-#api button[name="cancel"]:hover {
-    text-decoration: underline;
-    background: transparent !important;
-}
-
+      /* Primary buttons */
+      button,
+      input[type="submit"],
+      .btn,
+      button[type="button"],
+      button[type="submit"] {
+          background-color: #2b2565 !important;
+          border-color: #2b2565 !important;
+          color: #ffffff !important;
+      }
+      
+      /* Hover state */
+      button:hover,
+      input[type="submit"]:hover,
+      .btn:hover {
+          background-color: #2b2565 !important;
+          border-color: #2b2565 !important;
+          opacity: 0.9;
+      }
+      
+      /* Disabled buttons */
+      button:disabled,
+      input[type="submit"]:disabled {
+          background-color: #2b2565 !important;
+          border-color: #2b2565 !important;
+          opacity: 0.5 !important;
+          cursor: not-allowed;
+      }
+    /* ==========================================
+       FORCE ALL AZURE B2C BUTTONS TO #2b2565
+    =========================================== */
+    
+    /* Send Code Button */
+    #attributeList ul li .attrEntry .verificationControlContent .sendCode {
+        background-color: #2b2565 !important;
+        border-color: #2b2565 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Verify Code Button */
+    #attributeList ul li .attrEntry .verificationControlContent .verifyCode {
+        background-color: #2b2565 !important;
+        border-color: #2b2565 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Send New Code */
+    #attributeList ul li .attrEntry .verificationControlContent .sendNewCode {
+        background-color: #2b2565 !important;
+        border-color: #2b2565 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Change Email */
+    #attributeList ul li .attrEntry .verificationControlContent .changeClaims {
+        background-color: #2b2565 !important;
+        border-color: #2b2565 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Continue / Create Button */
+    #continue,
+    #api input[type="submit"] {
+        background-color: #2b2565 !important;
+        border-color: #2b2565 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Disabled state */
+    button[aria-disabled="true"],
+    button:disabled {
+        background-color: #2b2565 !important;
+        border-color: #2b2565 !important;
+        opacity: 0.5 !important;
+    }
   </style>
   </head>
   <body>
