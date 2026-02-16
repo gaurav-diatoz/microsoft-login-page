@@ -1542,23 +1542,27 @@ label {
 .unified_container .row .panel-default #api .localAccount .entry .buttons {
     margin: 10px 0 23px 0 !important;
 }
-/* Remove table layout from B2C */
+/* Make #api a flex container */
 .unified_container .row .panel-default #api {
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
-/* Make social normal block */
-.unified_container .row .panel-default #api .social {
+/* Order elements properly */
+.unified_container #api .localAccount {
+  order: 1 !important;
+}
+
+.unified_container #api .social {
+  order: 2 !important;
   display: block !important;
   position: relative !important;
-  top: 0 !important;
 }
 
-/* Move sign up below social */
 #localAccountForm .create {
-  display: block !important;
-  margin-top: 25px !important;
+  order: 3 !important;
   text-align: center !important;
+  margin-top: 20px !important;
 }
   </style>
   </head>
