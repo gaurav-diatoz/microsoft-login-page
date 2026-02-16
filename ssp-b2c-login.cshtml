@@ -1563,37 +1563,38 @@ label {
         </div>
       </div>
     </div>
-    <script>
-  (function () {
+   <script>
+(function () {
 
-    function moveSignUp() {
+  function moveSignUp() {
 
-      const social = document.querySelector(".claims-provider-list-buttons.social");
-      const createBlock = document.querySelector("#localAccountForm .create");
+    const panelBody = document.querySelector(".panel-body");
+    const social = document.querySelector(".claims-provider-list-buttons.social");
+    const createBlock = document.querySelector("#localAccountForm .create");
 
-      if (social && createBlock && !createBlock.dataset.moved) {
+    if (panelBody && social && createBlock && !createBlock.dataset.moved) {
 
-        social.parentNode.insertBefore(
-          createBlock,
-          social.nextSibling
-        );
+      // Move signup BELOW social buttons
+      panelBody.insertBefore(
+        createBlock,
+        social.nextSibling
+      );
 
-        createBlock.style.textAlign = "center";
-        createBlock.style.marginTop = "25px";
+      createBlock.style.textAlign = "center";
+      createBlock.style.marginTop = "20px";
 
-        createBlock.dataset.moved = "true";
-      }
+      createBlock.dataset.moved = "true";
     }
+  }
 
-    const observer = new MutationObserver(moveSignUp);
+  const observer = new MutationObserver(moveSignUp);
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 
-  })();
-  </script>
-
+})();
+</script>
   </body>
 </html>
